@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Command Line Terminal</title>
+  <style>
+    body {
+      font-family: "Ubuntu Mono", monospace;
+      font-size: 40pt;
+      background-color: black;
+      color: hotpink;
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+    }
+
+    #terminal {
+      height: 80vh;
+      overflow: auto;
+      padding: 20px;
+    }
+
+    .command-line {
+      display: block;
+    }
+
+    .input-line::before {
+      content: "_";
+      color: hotpink;
+      animation: blink-caret 1s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hidden-input {
+      position: absolute;
+      left: -9999px;
+      background-color: black;
+      color: black;
+      border: none;
+      outline: none;
+      caret-color: hotpink;
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal">
+    <div class="command-line">Welcome to the Command Line Terminal!</div>
+    <div class="command-line">Type 'help' to get started.</div>
+  </div>
+  <input type="text" id="inputLine" class="hidden-input" autofocus />
+  <script>
+    const terminalDiv = document.getElementById("terminal");
+    const inputLine = document.getElementById("inputLine");
+
+    function appendOutput(text) {
+      const outputLine = document.createElement("div");
+      outputLine.textContent = text;
+      terminalDiv.appendChild(outputLine);
+    }
+
+    function processCommand(command) {
+      command = command.trim().toLowerCase();
+      if (command === "help") {
+        appendOutput("Available commands:");
+        appendOutput("- help: Display this help message.");
+        appendOutput("- clear: Clear the terminal.");
+      } else if (command === "clear") {
+        terminalDiv.innerHTML = "";
+      }
+      inputLine.value = "";
+    }
+
+    terminalDiv.addEventListener("click", function () {
+      inputLine.focus();
+    });
+
+    inputLine.addEventListener("input", function () {
+      const command = inputLine.value;
+      terminalDiv.lastElementChild.textContent = "> " + command;
+    });
+
+    inputLine.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        const command = inputLine.value;
+        appendOutput("> " + command);
+        processCommand(command);
+        inputLine.value = "";
+      }
+    });
+  </script>
+</body>
+</html>

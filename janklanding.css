@@ -1,0 +1,19 @@
+body {
+	margin: 0;
+	overflow: hidden;
+}
+
+canvas {
+	background-color: black;
+}
+
+#instructions {
+	position: absolute;
+	color: #fff;
+	top: 0;
+	padding-top: 8px;
+	font-family: sans-serif;
+	width: 100%;
+	text-align: center;
+	pointer-events: none;
+}
