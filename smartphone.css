@@ -1,0 +1,160 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 90vh;
+	width: 100vw;
+	text-align: center;
+	background-color: #000000;
+	font-family: Arial, sans-serif;
+
+}
+
+.background-image {
+  position: fixed;
+  top: 10vh;
+  left: 2vw;
+  width: 96vw;
+  height: 85vh;
+  border-radius:25px 25px 25px 25px;
+  
+  background-image: url('Fabrina Glitchlace - Sudo Bang Bang (0.92) (741x1024).JPG');
+  background-size: 4000% 100%;
+  background-position: center; 
+  z-index: -1;
+  filter: brightness(0.5);
+  animation: rainbowBackground 5s infinite;
+  //box-shadow: inset 0px 0px 50px rgba(0, 0, 0), inset 0px 0px 50px rgba(0, 0, 0);
+  
+}
+
+.home-image {
+  top: 10vh;
+  left: 0vw;	
+  width: 100%;
+  height: auto;
+  opacity: 0.95;
+  border-radius:10px 10px 10px 10px;	
+ 
+}
+
+.about-image {
+  display:inline-block;
+  //width: 20%;
+  opacity:1;
+  border-radius: 10px 10px 10px 10px;	
+ 
+}
+
+.media-vid {
+  width: 80vw;
+  height: 55vw;
+  opacity: 1;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;	
+ 
+}
+
+@keyframes rainbowBackground {
+	  0% { background-position: 0% 0%; }
+	  50% { background-position: 100% 0%; }
+	  100% { background-position: 0% 0%; }
+}
+
+navmenu {
+	display: inline-block;
+	//display: webkit-flex; /* Safari 6.1+ */
+    display: ms-flex; /* IE 10 */ 
+
+	width: 100vw;
+	height: 10vh;
+
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+		
+	color: white;
+	font-family: verdana;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 4vh;
+	text-decoration: none;
+	text-shadow: black 3px 3px 3px, pink 5px 5px 5px;
+}
+
+maincontent {
+	display: inline-block;
+	width: 80vw;
+	height: 78vh;
+	margin: 2vh 1.5vw 1.5vh 1.5vw;
+	padding: 1.5vh 1.5vw 1.5vh 1.5vw;
+	
+	font-family: verdana;
+	color: white;
+	font-size: 2vh;
+	text-shadow: black 3px 3px 3px;
+	text-align: center;
+	
+	//background-color: black;
+	border-radius: 25px 25px 25px 25px;
+	//backdrop-filter: blur(100px);
+	//box-shadow: 0 0px 15px rgba(0,0,0,0.5);
+	
+}
+
+.nostyle {
+    text-decoration:none;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+	font-family: verdana;
+	color: rgb(0,255,0);
+	font-weight: bold;
+	font-size: 2vh;
+}
+
+h2 {
+	color: #ee55ff;
+	font-size: 2vh;
+
+}
+
+p {
+	text-align: left;
+	margin-top: 20px;
+}
+
+a {
+	color: white;
+}
+
+a:link {
+	text-decoration:none;
+
+}
+
+a:visited {
+
+}
+
+a:hover {
+	color: #ee55ff;
+    text-decoration: none;
+	text-shadow: black 3px 3px 3px, #9922cc 5px 5px 5px;
+}
+
+a:active {
+	color: #ee55ff;
+    text-decoration: none;
+	text-shadow: black 3px 3px 3px, #9922cc 5px 5px 5px;
+}
+

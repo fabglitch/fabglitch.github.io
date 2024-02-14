@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+
+<title>FABRINA GLITCHLACE</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="footprintslanding.css">
+<link rel="stylesheet" media="all and (orientation:landscape)" href="desktop.css">
+<link rel="stylesheet" media="all and (orientation:portrait)" href="smartphone.css">
+</head>
+
+<body class="jquery-ripples" onclick="javascript:location.href='http://glitchlace.com/about.html'">
+
+<script src="jquery_002.js"></script>
+<script src="jquery.js"></script>
+<script>
+var fixed = document.getElementById('fixed');
+
+fixed.addEventListener('touchmove', function(e) {
+
+        e.preventDefault();
+
+}, false);
+</script>
+<script>
+$(document).ready(function() {
+	try {
+		$('body').ripples({
+			resolution: 1920,
+			dropRadius: 100, //px
+			perturbance: 0.04,
+			interactive: true
+		});
+		$('main').ripples({
+			resolution: 1920,
+			dropRadius: 100, //px
+			perturbance: 0.04,
+			interactive: true
+		});
+		$('feature-content').ripples({
+		resolution: 1920,
+		dropRadius: 100, //px
+		perturbance: 0.1,
+		interactive: true
+		});
+	}
+	catch (e) {
+		$('.error').show().text(e);
+	}
+
+	// Automatic drops
+	setInterval(function() {
+		var $el = $('main');
+		var x = Math.random() * $el.outerWidth();
+		var y = Math.random() * $el.outerHeight();
+		var dropRadius = 100;
+		var strength = 0.1 + Math.random() * 0.04;
+
+		$el.ripples('drop', x, y, dropRadius, strength);
+	}, 4000);
+});
+</script>
+<!-- START CENTERFLOAT -->
+<centerfloat>
+	<!-- START NAVIGATION MENU -->
+	<span class="navmenu">
+		<a href="index.html">HOME</a> |
+		<a href="blog.html">BLOG</a> |
+		<a href="about.html">ABOUT</a> |
+		<a href="media.html">MEDIA</a> |
+		<a href="contact.html">CONTACT</a>
+	</span>
+	<!-- END NAVIGATION MENU -->
+
+	<!-- START MAINCONTENT -->
+	<main>
+		<feature-content>
+		</feature-content>	
+	</main>	
+	<!-- END MAINCONTENT -->
+</centerfloat>
+<!-- END CENTERFLOAT -->
+
+</body>
+</html>
