@@ -1,0 +1,29 @@
+BODY {font: 2pt "Arial";
+      font size: 10pt;
+      font color: "#555555";
+      scrollbar-face-color: #000000;
+      scrollbar-shadow-color: #000000;
+      scrollbar-highlight-color: #0000ff;
+      scrollbar-3dlight-color: #555555;
+      scrollbar-darkshadow-color: #0000ff;
+      scrollbar-track-color: #000000;
+      scrollbar-arrow-color: #555555;}
+
+TR {font: 10pt "Arial";}
+TD {font: 10pt "Arial";}
+
+A:hover	{color:#ffffff;	background: #000000; font-weight: bold; cursor : pointer;}
+A:link { color: "#0000ff"; cursor : pointer;}
+A:visited { color: "#999999"; cursor : pointer;}
+A:active { color: "#ffffff"; background: #000000; cursor : pointer;}
+
+hr   {color: "#000000";}
+H1   {font: 16pt;
+      font-weight: bold;
+      color: "#0000ff";}
+H2   {font: 18pt;
+      color: "#FFFFFF";}
+H3   {font: 14pt;
+      font-weight: bold;
+      text-decoration: underline;
+      color: "#FFFFFF";}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.socket.io/4.6.1; object-src 'none'; style-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self';">
+    <title>Chat with Socket.IO</title>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <style>
+        #chat-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+        #messages {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        #input-container {
+            display: flex;
+        }
+        #input-container input {
+            flex: 1;
+            padding: 5px;
+        }
+        #input-container button {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div id="input-container">
+            <input id="message-input" type="text" placeholder="Type your message here...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Connect to the Socket.IO server
+        const socket = io('https://www.mattbeckett.com', {
+            path: '/socket.io/'
+        });
+
+        const messagesDiv = document.getElementById('messages');
+        const input = document.getElementById('message-input');
+        const button = document.getElementById('send-button');
+
+        // Listen for messages from the server
+        socket.on('message', (data) => {
+            const msg = document.createElement('div');
+            msg.textContent = data;
+            messagesDiv.appendChild(msg);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to bottom
+        });
+
+        // Send message to server on button click
+        button.addEventListener('click', () => {
+            const message = input.value;
+            if (message.trim()) {
+                socket.emit('message', message);
+                input.value = ''; // Clear input
+            }
+        });
+    </script>
+</body>
+</html>

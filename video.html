@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>GLITCHLACE VIDEO</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" media="all and (orientation:landscape)" href="desktop.css">
+	<link rel="stylesheet" media="all and (orientation:portrait)" href="smartphone.css">
+	
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+
+
+        .container {
+            display: flex;
+			justify-content: center;
+			margin: 2vh 1.5vw 1.5vh 1.5vw;
+			padding: 1.5vh 1.5vw 1.5vh 1.5vw;
+			font-family: verdana;
+			color: white;
+			font-size: 2vh;
+			text-shadow: black 3px 3px 3px;
+			text-align: center;
+			border-radius: 25px 25px 25px 25px;
+			
+        }
+
+        .video-container {
+            display: inline-block;
+			width: 70%;
+            background-color: #000000;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+        }
+
+        .chat-container {
+            display: inline-block;
+			width: 30%;
+            background-color: #000000;
+			text-color: #00ffcc;
+            padding: 0px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Responsive layout for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-container, .chat-container {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+	<div style="position: fixed;top: 10vh;left: 2vw;width: 96vw;height: 85vh;border-radius: 25px 25px 25px 25px;background-color: #260145; background-size: 4000% 100%; background-position: center; z-index: -1;"></div>
+	
+	<navmenu>
+		<a href="index.html">GLITCHLACE VIDEO</a>
+	</navmenu>
+		
+	<div class="container">
+		<!-- Video player container -->
+		<div class="video-container">
+			<video id="video" controls></video>
+		</div>
+
+		<!-- Chat container -->
+		<div class="chat-container">
+			<h2>Glitch Chat</h2>
+			<script src="https://minnit.chat/js/embed.js" defer></script>
+			<minnit-chat data-chatname="https://organizations.minnit.chat/341862529148822/Main?embed&nickname=" data-style="width:98%;height:60vh;max-height:60vh;"></minnit-chat>
+		</div>
+	</div>
+	
+    <script>
+        var video = document.getElementById('video');
+        var videoSrc = 'https://www.mattbeckett.com/hls/TEST.m3u8'  // Update with your stream URL
+
+        if (Hls.isSupported()) {
+           var hls = new Hls({
+			liveSyncDurationCount: 3, // Stay 3 segments behind the live edge
+			maxBufferLength: 12000,     // Maximum buffer length in seconds
+			maxMaxBufferLength: 20,  // Buffer growth limit
+			maxBufferHole: 0.5,      // Tolerate small gaps in the buffer
+			maxSeekHole: 2,          // Tolerate seek holes in the media
+			lowLatencyMode: false,    // Enable low latency mode for live streaming
+			backBufferLength: 1800, // Removes stale buffer to reduce memory usage
+			startLevel: -1,          // Start from the default quality level
+		});
+		hls.loadSource(videoSrc);
+		hls.attachMedia(video);
+		hls.on(Hls.Events.MANIFEST_PARSED, function () {
+			video.play();
+		});
+
+		// Log errors for debugging
+		hls.on(Hls.Events.ERROR, function (event, data) {
+			console.error('HLS.js error:', data);
+			if (data.fatal) {
+				switch (data.type) {
+					case Hls.ErrorTypes.NETWORK_ERROR:
+						console.error('Fatal network error encountered. Attempting to recover...');
+						hls.startLoad();
+						break;
+					case Hls.ErrorTypes.MEDIA_ERROR:
+						console.error('Fatal media error encountered. Attempting to recover...');
+						hls.recoverMediaError();
+						break;
+					default:
+						console.error('Unrecoverable error. Destroying HLS instance...');
+						hls.destroy();
+						break;
+				}
+			}
+		});
+        }
+        // Native HLS support for browsers like Safari
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            console.log("Using native HLS support.");
+            video.src = videoSrc;
+            video.addEventListener('canplay', function() {
+                console.log("Native player ready, starting playback.");
+                video.play();
+            });
+        }
+
+        // Log waiting events for the video player
+        video.addEventListener('waiting', function() {
+            console.log("Video is buffering...");
+        });
+    </script>
+	
+
+	
+</body>
+</html>

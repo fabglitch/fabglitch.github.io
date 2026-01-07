@@ -1,0 +1,357 @@
+Jan  7 13:11:49 10.71.60.0 u90930781 Connection from 10.71.60.0 port 14904 on 74.208.59.45 port 22 rdomain ""
+Jan  7 13:11:50 10.71.60.0 u90930781 Accepted password for u90930781 from 10.71.60.0 port 14904 ssh2
+Jan  7 13:11:50 10.71.60.0 u90930781 Starting session: subsystem 'sftp' for u90930781 from 10.71.60.0 port 14904 id 0
+Jan  7 13:11:50 10.71.60.0 u90930781 session opened for local user u90930781 from [10.71.60.0]
+Jan  7 13:12:25 10.71.60.0 u90930781 Connection from 10.71.60.0 port 12582 on 74.208.59.45 port 22 rdomain ""
+Jan  7 13:12:25 10.71.60.0 u90930781 Accepted password for u90930781 from 10.71.60.0 port 12582 ssh2
+Jan  7 13:12:25 10.71.60.0 u90930781 Connection from 10.71.60.0 port 12580 on 74.208.59.45 port 22 rdomain ""
+Jan  7 13:12:25 10.71.60.0 u90930781 Accepted password for u90930781 from 10.71.60.0 port 12580 ssh2
+Jan  7 13:12:26 10.71.60.0 u90930781 Starting session: subsystem 'sftp' for u90930781 from 10.71.60.0 port 12582 id 0
+Jan  7 13:12:26 10.71.60.0 u90930781 Starting session: subsystem 'sftp' for u90930781 from 10.71.60.0 port 12580 id 0
+Jan  7 13:12:26 10.71.60.0 u90930781 session opened for local user u90930781 from [10.71.60.0]
+Jan  7 13:12:26 10.71.60.0 u90930781 session opened for local user u90930781 from [10.71.60.0]
+Jan  7 13:12:26 10.71.60.0 u90930781 sent status No such file
+Jan  7 13:12:26 10.71.60.0 u90930781 open "/media-shitlord.html" flags READ mode 0666
+Jan  7 13:12:26 10.71.60.0 u90930781 close "/media-shitlord.html" bytes read 8589 written 0
+Jan  7 13:12:26 10.71.60.0 u90930781 [10.71.60.0|get|0|8589|0|0|0|2f6d656469612d736869746c6f72642e68746d6c|]
+Jan  7 13:12:26 10.71.60.0 u90930781 open "/media-thezerodayproposal.html" flags READ mode 0666
+Jan  7 13:12:26 10.71.60.0 u90930781 close "/media-thezerodayproposal.html" bytes read 10190 written 0
+Jan  7 13:12:26 10.71.60.0 u90930781 [10.71.60.0|get|0|10190|0|0|0|2f6d656469612d7468657a65726f64617970726f706f73616c2e68746d6c|]
+Jan  7 13:12:26 10.71.60.0 u90930781 open "/media-sudobangbangdeluxe.html" flags READ mode 0666
+Jan  7 13:12:27 10.71.60.0 u90930781 close "/media-sudobangbangdeluxe.html" bytes read 2814 written 0
+Jan  7 13:12:27 10.71.60.0 u90930781 [10.71.60.0|get|1|2814|0|0|0|2f6d656469612d7375646f62616e6762616e6764656c7578652e68746d6c|]
+Jan  7 13:12:27 10.71.60.0 u90930781 open "/media-footprints.html" flags READ mode 0666
+Jan  7 13:12:27 10.71.60.0 u90930781 close "/media-footprints.html" bytes read 9767 written 0
+Jan  7 13:12:27 10.71.60.0 u90930781 [10.71.60.0|get|0|9767|0|0|0|2f6d656469612d666f6f747072696e74732e68746d6c|]
+Jan  7 13:12:27 10.71.60.0 u90930781 open "/media-sudobangbang.html" flags READ mode 0666
+Jan  7 13:12:27 10.71.60.0 u90930781 close "/media-sudobangbang.html" bytes read 9183 written 0
+Jan  7 13:12:27 10.71.60.0 u90930781 [10.71.60.0|get|0|9183|0|0|0|2f6d656469612d7375646f62616e6762616e672e68746d6c|]
+Jan  7 13:12:27 10.71.60.0 u90930781 open "/media-jank.html" flags READ mode 0666
+Jan  7 13:12:27 10.71.60.0 u90930781 close "/media-jank.html" bytes read 8277 written 0
+Jan  7 13:12:27 10.71.60.0 u90930781 [10.71.60.0|get|0|8277|0|0|0|2f6d656469612d6a616e6b2e68746d6c|]
+Jan  7 13:12:40 10.71.60.0 u90930781 open "/media.html" flags READ mode 0666
+Jan  7 13:12:40 10.71.60.0 u90930781 open "/index.html" flags READ mode 0666
+Jan  7 13:12:40 10.71.60.0 u90930781 close "/index.html" bytes read 3240 written 0
+Jan  7 13:12:40 10.71.60.0 u90930781 [10.71.60.0|get|0|3240|0|0|0|2f696e6465782e68746d6c|]
+Jan  7 13:12:40 10.71.60.0 u90930781 close "/media.html" bytes read 2457 written 0
+Jan  7 13:12:40 10.71.60.0 u90930781 [10.71.60.0|get|0|2457|0|0|0|2f6d656469612e68746d6c|]
+Jan  7 13:12:40 10.71.60.0 u90930781 open "/video.html" flags READ mode 0666
+Jan  7 13:12:40 10.71.60.0 u90930781 open "/jprant.html" flags READ mode 0666
+Jan  7 13:12:40 10.71.60.0 u90930781 close "/video.html" bytes read 5220 written 0
+Jan  7 13:12:40 10.71.60.0 u90930781 [10.71.60.0|get|0|5220|0|0|0|2f766964656f2e68746d6c|]
+Jan  7 13:12:40 10.71.60.0 u90930781 close "/jprant.html" bytes read 18789 written 0
+Jan  7 13:12:40 10.71.60.0 u90930781 [10.71.60.0|get|0|18789|0|0|0|2f6a7072616e742e68746d6c|]
+Jan  7 13:12:40 10.71.60.0 u90930781 open "/nav.html" flags READ mode 0666
+Jan  7 13:12:41 10.71.60.0 u90930781 open "/index(2025.01.15).html" flags READ mode 0666
+Jan  7 13:12:41 10.71.60.0 u90930781 close "/nav.html" bytes read 118 written 0
+Jan  7 13:12:41 10.71.60.0 u90930781 [10.71.60.0|get|1|118|0|0|0|2f6e61762e68746d6c|]
+Jan  7 13:12:41 10.71.60.0 u90930781 close "/index(2025.01.15).html" bytes read 3095 written 0
+Jan  7 13:12:41 10.71.60.0 u90930781 [10.71.60.0|get|0|3095|0|0|0|2f696e64657828323032352e30312e3135292e68746d6c|]
+Jan  7 13:12:41 10.71.60.0 u90930781 open "/sudobangbang_small.jpg" flags READ mode 0666
+Jan  7 13:12:41 10.71.60.0 u90930781 open "/cinema.html" flags READ mode 0666
+Jan  7 13:12:41 10.71.60.0 u90930781 close "/sudobangbang_small.jpg" bytes read 68371 written 0
+Jan  7 13:12:41 10.71.60.0 u90930781 [10.71.60.0|get|0|68371|0|0|0|2f7375646f62616e6762616e675f736d616c6c2e6a7067|]
+Jan  7 13:12:41 10.71.60.0 u90930781 close "/cinema.html" bytes read 5222 written 0
+Jan  7 13:12:41 10.71.60.0 u90930781 [10.71.60.0|get|0|5222|0|0|0|2f63696e656d612e68746d6c|]
+Jan  7 13:12:41 10.71.60.0 u90930781 open "/streamtest.html" flags READ mode 0666
+Jan  7 13:12:41 10.71.60.0 u90930781 open "/chattest.html" flags READ mode 0666
+Jan  7 13:12:41 10.71.60.0 u90930781 close "/streamtest.html" bytes read 5221 written 0
+Jan  7 13:12:41 10.71.60.0 u90930781 [10.71.60.0|get|0|5221|0|0|0|2f73747265616d746573742e68746d6c|]
+Jan  7 13:12:41 10.71.60.0 u90930781 close "/chattest.html" bytes read 2485 written 0
+Jan  7 13:12:41 10.71.60.0 u90930781 [10.71.60.0|get|0|2485|0|0|0|2f63686174746573742e68746d6c|]
+Jan  7 13:12:41 10.71.60.0 u90930781 open "/blog.html" flags READ mode 0666
+Jan  7 13:12:41 10.71.60.0 u90930781 open "/SubStackIMGLink.PNG" flags READ mode 0666
+Jan  7 13:12:41 10.71.60.0 u90930781 close "/blog.html" bytes read 1037 written 0
+Jan  7 13:12:41 10.71.60.0 u90930781 [10.71.60.0|get|0|1037|0|0|0|2f626c6f672e68746d6c|]
+Jan  7 13:12:42 10.71.60.0 u90930781 open "/contact.html" flags READ mode 0666
+Jan  7 13:12:42 10.71.60.0 u90930781 close "/SubStackIMGLink.PNG" bytes read 138454 written 0
+Jan  7 13:12:42 10.71.60.0 u90930781 [10.71.60.0|get|1|138454|0|0|0|2f537562537461636b494d474c696e6b2e504e47|]
+Jan  7 13:12:42 10.71.60.0 u90930781 close "/contact.html" bytes read 2564 written 0
+Jan  7 13:12:42 10.71.60.0 u90930781 [10.71.60.0|get|0|2564|0|0|0|2f636f6e746163742e68746d6c|]
+Jan  7 13:12:42 10.71.60.0 u90930781 open "/FabGlitch_X-Profile_20241221.PNG" flags READ mode 0666
+Jan  7 13:12:42 10.71.60.0 u90930781 open "/CentaurDongDoogle_400.PNG" flags READ mode 0666
+Jan  7 13:12:42 10.71.60.0 u90930781 close "/FabGlitch_X-Profile_20241221.PNG" bytes read 359654 written 0
+Jan  7 13:12:42 10.71.60.0 u90930781 [10.71.60.0|get|0|359654|0|0|0|2f466162476c697463685f582d50726f66696c655f32303234313232312e504e47|]
+Jan  7 13:12:42 10.71.60.0 u90930781 close "/CentaurDongDoogle_400.PNG" bytes read 177740 written 0
+Jan  7 13:12:42 10.71.60.0 u90930781 [10.71.60.0|get|0|177740|0|0|0|2f43656e74617572446f6e67446f6f676c655f3430302e504e47|]
+Jan  7 13:12:42 10.71.60.0 u90930781 open "/CentaurDongDoogle.png" flags READ mode 0666
+Jan  7 13:12:42 10.71.60.0 u90930781 open "/ElevenLabs_2024-08-19T15_36_38_Matt MacGyver - Uber Narrator_ivc_s50_sb75_se0_b_m2-ColossusReviewReview.mp3" flags READ mode 0666
+Jan  7 13:12:42 10.71.60.0 u90930781 close "/ElevenLabs_2024-08-19T15_36_38_Matt MacGyver - Uber Narrator_ivc_s50_sb75_se0_b_m2-ColossusReviewReview.mp3" bytes read 194351 written 0
+Jan  7 13:12:42 10.71.60.0 u90930781 [10.71.60.0|get|0|194351|0|0|0|2f456c6576656e4c6162735f323032342d30382d31395431355f33365f33385f4d617474204d61634779766572202d2055626572204e61727261746f725f6976635f7335305f736237355f7365305f625f6d322d436f6c6f737375735265766965775265766965772e6d7033|]
+Jan  7 13:12:43 10.71.60.0 u90930781 open "/SUDO_BANG_BANG_PAPERBACK_Cover-Front_promoclip_1.0b_1024h.PNG" flags READ mode 0666
+Jan  7 13:12:43 10.71.60.0 u90930781 close "/CentaurDongDoogle.png" bytes read 1007562 written 0
+Jan  7 13:12:43 10.71.60.0 u90930781 [10.71.60.0|get|1|1007562|0|0|0|2f43656e74617572446f6e67446f6f676c652e706e67|]
+Jan  7 13:12:43 10.71.60.0 u90930781 open "/desktop.css" flags READ mode 0666
+Jan  7 13:12:43 10.71.60.0 u90930781 close "/desktop.css" bytes read 2650 written 0
+Jan  7 13:12:43 10.71.60.0 u90930781 [10.71.60.0|get|0|2650|0|0|0|2f6465736b746f702e637373|]
+Jan  7 13:12:43 10.71.60.0 u90930781 open "/smartphone.css" flags READ mode 0666
+Jan  7 13:12:43 10.71.60.0 u90930781 close "/smartphone.css" bytes read 2695 written 0
+Jan  7 13:12:43 10.71.60.0 u90930781 [10.71.60.0|get|0|2695|0|0|0|2f736d61727470686f6e652e637373|]
+Jan  7 13:12:43 10.71.60.0 u90930781 close "/SUDO_BANG_BANG_PAPERBACK_Cover-Front_promoclip_1.0b_1024h.PNG" bytes read 1455441 written 0
+Jan  7 13:12:43 10.71.60.0 u90930781 [10.71.60.0|get|0|1455441|0|0|0|2f5355444f5f42414e475f42414e475f50415045524241434b5f436f7665722d46726f6e745f70726f6d6f636c69705f312e30625f31303234682e504e47|]
+Jan  7 13:12:44 10.71.60.0 u90930781 open "/battlesnake.zip" flags READ mode 0666
+Jan  7 13:12:44 10.71.60.0 u90930781 open "/SBBDAE_21(gold)_1532x1024.PNG" flags READ mode 0666
+Jan  7 13:12:47 10.71.60.0 u90930781 close "/SBBDAE_21(gold)_1532x1024.PNG" bytes read 3115007 written 0
+Jan  7 13:12:47 10.71.60.0 u90930781 [10.71.60.0|get|3|3115007|0|0|0|2f5342424441455f323128676f6c64295f3135333278313032342e504e47|]
+Jan  7 13:12:47 10.71.60.0 u90930781 open "/about.html" flags READ mode 0666
+Jan  7 13:12:47 10.71.60.0 u90930781 close "/about.html" bytes read 1884 written 0
+Jan  7 13:12:47 10.71.60.0 u90930781 [10.71.60.0|get|0|1884|0|0|0|2f61626f75742e68746d6c|]
+Jan  7 13:12:47 10.71.60.0 u90930781 open "/magorax.html" flags READ mode 0666
+Jan  7 13:12:47 10.71.60.0 u90930781 close "/magorax.html" bytes read 29765 written 0
+Jan  7 13:12:47 10.71.60.0 u90930781 [10.71.60.0|get|0|29765|0|0|0|2f6d61676f7261782e68746d6c|]
+Jan  7 13:12:47 10.71.60.0 u90930781 open "/SBB - 01 - Magorax [Master-Mixed-Test01].mp3" flags READ mode 0666
+Jan  7 13:13:12 10.71.60.0 u90930781 close "/SBB - 01 - Magorax [Master-Mixed-Test01].mp3" bytes read 23667086 written 0
+Jan  7 13:13:12 10.71.60.0 u90930781 [10.71.60.0|get|25|23667086|0|0|0|2f534242202d203031202d204d61676f726178205b4d61737465722d4d697865642d5465737430315d2e6d7033|]
+Jan  7 13:13:12 10.71.60.0 u90930781 open "/JakeFired!.mp3" flags READ mode 0666
+Jan  7 13:13:13 10.71.60.0 u90930781 close "/JakeFired!.mp3" bytes read 1548493 written 0
+Jan  7 13:13:13 10.71.60.0 u90930781 [10.71.60.0|get|1|1548493|0|0|0|2f4a616b654669726564212e6d7033|]
+Jan  7 13:13:14 10.71.60.0 u90930781 open "/TylersFired!.mp3" flags READ mode 0666
+Jan  7 13:13:15 10.71.60.0 u90930781 close "/TylersFired!.mp3" bytes read 1205216 written 0
+Jan  7 13:13:15 10.71.60.0 u90930781 [10.71.60.0|get|1|1205216|0|0|0|2f54796c6572734669726564212e6d7033|]
+Jan  7 13:13:15 10.71.60.0 u90930781 open "/HappyBirthdayJuiceMagoo.mp3" flags READ mode 0666
+Jan  7 13:13:16 10.71.60.0 u90930781 close "/HappyBirthdayJuiceMagoo.mp3" bytes read 1457344 written 0
+Jan  7 13:13:16 10.71.60.0 u90930781 [10.71.60.0|get|1|1457344|0|0|0|2f486170707942697274686461794a756963654d61676f6f2e6d7033|]
+Jan  7 13:13:16 10.71.60.0 u90930781 open "/KatiesFired!.mp3" flags READ mode 0666
+Jan  7 13:13:18 10.71.60.0 u90930781 close "/KatiesFired!.mp3" bytes read 1647200 written 0
+Jan  7 13:13:18 10.71.60.0 u90930781 [10.71.60.0|get|2|1647200|0|0|0|2f4b61746965734669726564212e6d7033|]
+Jan  7 13:13:18 10.71.60.0 u90930781 open "/RebeccasFired!.mp3" flags READ mode 0666
+Jan  7 13:13:20 10.71.60.0 u90930781 close "/RebeccasFired!.mp3" bytes read 2030547 written 0
+Jan  7 13:13:20 10.71.60.0 u90930781 [10.71.60.0|get|2|2030547|0|0|0|2f52656265636361734669726564212e6d7033|]
+Jan  7 13:13:20 10.71.60.0 u90930781 open "/AndreiaFired!.mp3" flags READ mode 0666
+Jan  7 13:13:22 10.71.60.0 u90930781 close "/AndreiaFired!.mp3" bytes read 1486733 written 0
+Jan  7 13:13:22 10.71.60.0 u90930781 [10.71.60.0|get|2|1486733|0|0|0|2f416e64726569614669726564212e6d7033|]
+Jan  7 13:13:22 10.71.60.0 u90930781 open "/FiredFrogs!.mp3" flags READ mode 0666
+Jan  7 13:13:24 10.71.60.0 u90930781 close "/FiredFrogs!.mp3" bytes read 1562083 written 0
+Jan  7 13:13:24 10.71.60.0 u90930781 [10.71.60.0|get|2|1562083|0|0|0|2f466972656446726f6773212e6d7033|]
+Jan  7 13:13:24 10.71.60.0 u90930781 open "/ElRonFired!.mp3" flags READ mode 0666
+Jan  7 13:13:25 10.71.60.0 u90930781 close "/ElRonFired!.mp3" bytes read 1300672 written 0
+Jan  7 13:13:25 10.71.60.0 u90930781 [10.71.60.0|get|1|1300672|0|0|0|2f456c526f6e4669726564212e6d7033|]
+Jan  7 13:13:25 10.71.60.0 u90930781 open "/01-Magorax(mixdown+bb2.0danger).mp3" flags READ mode 0666
+Jan  7 13:13:31 10.71.60.0 u90930781 close "/battlesnake.zip" bytes read 49447738 written 0
+Jan  7 13:13:31 10.71.60.0 u90930781 [10.71.60.0|get|47|49447738|0|0|0|2f626174746c65736e616b652e7a6970|]
+Jan  7 13:13:32 10.71.60.0 u90930781 open "/01-Magorax(mixdown_test04).mp3" flags READ mode 0666
+Jan  7 13:13:49 10.71.60.0 u90930781 close "/01-Magorax(mixdown+bb2.0danger).mp3" bytes read 23505482 written 0
+Jan  7 13:13:49 10.71.60.0 u90930781 [10.71.60.0|get|24|23505482|0|0|0|2f30312d4d61676f726178286d6978646f776e2b6262322e3064616e676572292e6d7033|]
+Jan  7 13:13:49 10.71.60.0 u90930781 open "/magorax.png" flags READ mode 0666
+Jan  7 13:13:50 10.71.60.0 u90930781 close "/magorax.png" bytes read 732763 written 0
+Jan  7 13:13:50 10.71.60.0 u90930781 [10.71.60.0|get|1|732763|0|0|0|2f6d61676f7261782e706e67|]
+Jan  7 13:13:50 10.71.60.0 u90930781 open "/01-Magorax(mixdown)test03.mp3" flags READ mode 0666
+Jan  7 13:13:56 10.71.60.0 u90930781 close "/01-Magorax(mixdown_test04).mp3" bytes read 23578841 written 0
+Jan  7 13:13:56 10.71.60.0 u90930781 [10.71.60.0|get|24|23578841|0|0|0|2f30312d4d61676f726178286d6978646f776e5f746573743034292e6d7033|]
+Jan  7 13:13:56 10.71.60.0 u90930781 open "/FabGlitchTwitter.png" flags READ mode 0666
+Jan  7 13:13:56 10.71.60.0 u90930781 close "/FabGlitchTwitter.png" bytes read 696943 written 0
+Jan  7 13:13:56 10.71.60.0 u90930781 [10.71.60.0|get|0|696943|0|0|0|2f466162476c69746368547769747465722e706e67|]
+Jan  7 13:13:56 10.71.60.0 u90930781 open "/FabGlitchSubStack.png" flags READ mode 0666
+Jan  7 13:13:57 10.71.60.0 u90930781 close "/FabGlitchSubStack.png" bytes read 76088 written 0
+Jan  7 13:13:57 10.71.60.0 u90930781 [10.71.60.0|get|1|76088|0|0|0|2f466162476c69746368537562537461636b2e706e67|]
+Jan  7 13:13:57 10.71.60.0 u90930781 open "/shitlord_small(original).jpg" flags READ mode 0666
+Jan  7 13:13:57 10.71.60.0 u90930781 close "/shitlord_small(original).jpg" bytes read 23623 written 0
+Jan  7 13:13:57 10.71.60.0 u90930781 [10.71.60.0|get|0|23623|0|0|0|2f736869746c6f72645f736d616c6c286f726967696e616c292e6a7067|]
+Jan  7 13:13:57 10.71.60.0 u90930781 open "/Fabrina Glitchlace - Sudo Bang Bang (0.92) (741x1024).JPG" flags READ mode 0666
+Jan  7 13:13:57 10.71.60.0 u90930781 close "/Fabrina Glitchlace - Sudo Bang Bang (0.92) (741x1024).JPG" bytes read 189760 written 0
+Jan  7 13:13:57 10.71.60.0 u90930781 [10.71.60.0|get|0|189760|0|0|0|2f46616272696e6120476c697463686c616365202d205375646f2042616e672042616e672028302e39322920283734317831303234292e4a5047|]
+Jan  7 13:13:57 10.71.60.0 u90930781 open "/test.html" flags READ mode 0666
+Jan  7 13:13:57 10.71.60.0 u90930781 close "/test.html" bytes read 955 written 0
+Jan  7 13:13:57 10.71.60.0 u90930781 [10.71.60.0|get|0|955|0|0|0|2f746573742e68746d6c|]
+Jan  7 13:13:58 10.71.60.0 u90930781 open "/home.html" flags READ mode 0666
+Jan  7 13:13:58 10.71.60.0 u90930781 close "/home.html" bytes read 955 written 0
+Jan  7 13:13:58 10.71.60.0 u90930781 [10.71.60.0|get|0|955|0|0|0|2f686f6d652e68746d6c|]
+Jan  7 13:13:58 10.71.60.0 u90930781 open "/shitlord_small.jpg" flags READ mode 0666
+Jan  7 13:13:58 10.71.60.0 u90930781 close "/shitlord_small.jpg" bytes read 56226 written 0
+Jan  7 13:13:58 10.71.60.0 u90930781 [10.71.60.0|get|0|56226|0|0|0|2f736869746c6f72645f736d616c6c2e6a7067|]
+Jan  7 13:13:58 10.71.60.0 u90930781 open "/footprints_bg_1920x1080.JPG" flags READ mode 0666
+Jan  7 13:13:58 10.71.60.0 u90930781 close "/footprints_bg_1920x1080.JPG" bytes read 196194 written 0
+Jan  7 13:13:58 10.71.60.0 u90930781 [10.71.60.0|get|0|196194|0|0|0|2f666f6f747072696e74735f62675f3139323078313038302e4a5047|]
+Jan  7 13:13:58 10.71.60.0 u90930781 open "/index-footprints-new-working.html" flags READ mode 0666
+Jan  7 13:13:59 10.71.60.0 u90930781 close "/index-footprints-new-working.html" bytes read 2217 written 0
+Jan  7 13:13:59 10.71.60.0 u90930781 [10.71.60.0|get|1|2217|0|0|0|2f696e6465782d666f6f747072696e74732d6e65772d776f726b696e672e68746d6c|]
+Jan  7 13:13:59 10.71.60.0 u90930781 open "/smartphonetest.html" flags READ mode 0666
+Jan  7 13:13:59 10.71.60.0 u90930781 close "/smartphonetest.html" bytes read 554 written 0
+Jan  7 13:13:59 10.71.60.0 u90930781 [10.71.60.0|get|0|554|0|0|0|2f736d61727470686f6e65746573742e68746d6c|]
+Jan  7 13:13:59 10.71.60.0 u90930781 open "/desktophd.css" flags READ mode 0666
+Jan  7 13:13:59 10.71.60.0 u90930781 close "/desktophd.css" bytes read 155 written 0
+Jan  7 13:13:59 10.71.60.0 u90930781 [10.71.60.0|get|0|155|0|0|0|2f6465736b746f7068642e637373|]
+Jan  7 13:13:59 10.71.60.0 u90930781 open "/index-footprints-new.html" flags READ mode 0666
+Jan  7 13:13:59 10.71.60.0 u90930781 close "/index-footprints-new.html" bytes read 5793 written 0
+Jan  7 13:13:59 10.71.60.0 u90930781 [10.71.60.0|get|0|5793|0|0|0|2f696e6465782d666f6f747072696e74732d6e65772e68746d6c|]
+Jan  7 13:14:00 10.71.60.0 u90930781 open "/footprints_small.png" flags READ mode 0666
+Jan  7 13:14:00 10.71.60.0 u90930781 close "/footprints_small.png" bytes read 146610 written 0
+Jan  7 13:14:00 10.71.60.0 u90930781 [10.71.60.0|get|0|146610|0|0|0|2f666f6f747072696e74735f736d616c6c2e706e67|]
+Jan  7 13:14:00 10.71.60.0 u90930781 open "/template-footprints.html" flags READ mode 0666
+Jan  7 13:14:00 10.71.60.0 u90930781 close "/template-footprints.html" bytes read 9466 written 0
+Jan  7 13:14:00 10.71.60.0 u90930781 [10.71.60.0|get|0|9466|0|0|0|2f74656d706c6174652d666f6f747072696e74732e68746d6c|]
+Jan  7 13:14:00 10.71.60.0 u90930781 open "/index-footprints-old.html" flags READ mode 0666
+Jan  7 13:14:00 10.71.60.0 u90930781 close "/index-footprints-old.html" bytes read 5242 written 0
+Jan  7 13:14:00 10.71.60.0 u90930781 [10.71.60.0|get|0|5242|0|0|0|2f696e6465782d666f6f747072696e74732d6f6c642e68746d6c|]
+Jan  7 13:14:00 10.71.60.0 u90930781 open "/template-new.html" flags READ mode 0666
+Jan  7 13:14:01 10.71.60.0 u90930781 close "/template-new.html" bytes read 4814 written 0
+Jan  7 13:14:01 10.71.60.0 u90930781 [10.71.60.0|get|1|4814|0|0|0|2f74656d706c6174652d6e65772e68746d6c|]
+Jan  7 13:14:01 10.71.60.0 u90930781 open "/F_1024.PNG" flags READ mode 0666
+Jan  7 13:14:02 10.71.60.0 u90930781 close "/F_1024.PNG" bytes read 2325329 written 0
+Jan  7 13:14:02 10.71.60.0 u90930781 [10.71.60.0|get|1|2325329|0|0|0|2f465f313032342e504e47|]
+Jan  7 13:14:02 10.71.60.0 u90930781 open "/EEZe_WmXYAAuZga.jpg" flags READ mode 0666
+Jan  7 13:14:03 10.71.60.0 u90930781 close "/EEZe_WmXYAAuZga.jpg" bytes read 289635 written 0
+Jan  7 13:14:03 10.71.60.0 u90930781 [10.71.60.0|get|1|289635|0|0|0|2f45455a655f576d58594141755a67612e6a7067|]
+Jan  7 13:14:03 10.71.60.0 u90930781 open "/jquery_002.js" flags READ mode 0666
+Jan  7 13:14:03 10.71.60.0 u90930781 close "/jquery_002.js" bytes read 83095 written 0
+Jan  7 13:14:03 10.71.60.0 u90930781 [10.71.60.0|get|0|83095|0|0|0|2f6a71756572795f3030322e6a73|]
+Jan  7 13:14:03 10.71.60.0 u90930781 open "/jquery.js" flags READ mode 0666
+Jan  7 13:14:03 10.71.60.0 u90930781 close "/jquery.js" bytes read 24594 written 0
+Jan  7 13:14:03 10.71.60.0 u90930781 [10.71.60.0|get|0|24594|0|0|0|2f6a71756572792e6a73|]
+Jan  7 13:14:03 10.71.60.0 u90930781 open "/index-footprints.htm" flags READ mode 0666
+Jan  7 13:14:03 10.71.60.0 u90930781 close "/index-footprints.htm" bytes read 5226 written 0
+Jan  7 13:14:03 10.71.60.0 u90930781 [10.71.60.0|get|0|5226|0|0|0|2f696e6465782d666f6f747072696e74732e68746d|]
+Jan  7 13:14:04 10.71.60.0 u90930781 open "/Fabrina Glitchlace - Jank - Cover Front.PNG" flags READ mode 0666
+Jan  7 13:14:10 10.71.60.0 u90930781 close "/Fabrina Glitchlace - Jank - Cover Front.PNG" bytes read 6411538 written 0
+Jan  7 13:14:10 10.71.60.0 u90930781 [10.71.60.0|get|6|6411538|0|0|0|2f46616272696e6120476c697463686c616365202d204a616e6b202d20436f7665722046726f6e742e504e47|]
+Jan  7 13:14:10 10.71.60.0 u90930781 open "/Fabrina Glitchlace - Jank - 600x600.PNG" flags READ mode 0666
+Jan  7 13:14:10 10.71.60.0 u90930781 close "/Fabrina Glitchlace - Jank - 600x600.PNG" bytes read 634154 written 0
+Jan  7 13:14:10 10.71.60.0 u90930781 [10.71.60.0|get|0|634154|0|0|0|2f46616272696e6120476c697463686c616365202d204a616e6b202d20363030783630302e504e47|]
+Jan  7 13:14:10 10.71.60.0 u90930781 open "/FG-TZDP-CF1024.PNG" flags READ mode 0666
+Jan  7 13:14:11 10.71.60.0 u90930781 close "/01-Magorax(mixdown)test03.mp3" bytes read 23544015 written 0
+Jan  7 13:14:11 10.71.60.0 u90930781 [10.71.60.0|get|21|23544015|0|0|0|2f30312d4d61676f726178286d6978646f776e297465737430332e6d7033|]
+Jan  7 13:14:11 10.71.60.0 u90930781 open "/FG-J-CF1024.PNG" flags READ mode 0666
+Jan  7 13:14:12 10.71.60.0 u90930781 close "/FG-TZDP-CF1024.PNG" bytes read 1268306 written 0
+Jan  7 13:14:12 10.71.60.0 u90930781 [10.71.60.0|get|2|1268306|0|0|0|2f46472d545a44502d4346313032342e504e47|]
+Jan  7 13:14:12 10.71.60.0 u90930781 open "/FG-SAM-CF1024.PNG" flags READ mode 0666
+Jan  7 13:14:12 10.71.60.0 u90930781 close "/FG-J-CF1024.PNG" bytes read 1247545 written 0
+Jan  7 13:14:12 10.71.60.0 u90930781 [10.71.60.0|get|1|1247545|0|0|0|2f46472d4a2d4346313032342e504e47|]
+Jan  7 13:14:12 10.71.60.0 u90930781 open "/jank-cover-cardfront_small.PNG" flags READ mode 0666
+Jan  7 13:14:12 10.71.60.0 u90930781 close "/jank-cover-cardfront_small.PNG" bytes read 127428 written 0
+Jan  7 13:14:12 10.71.60.0 u90930781 [10.71.60.0|get|0|127428|0|0|0|2f6a616e6b2d636f7665722d6361726466726f6e745f736d616c6c2e504e47|]
+Jan  7 13:14:12 10.71.60.0 u90930781 close "/FG-SAM-CF1024.PNG" bytes read 767974 written 0
+Jan  7 13:14:12 10.71.60.0 u90930781 [10.71.60.0|get|0|767974|0|0|0|2f46472d53414d2d4346313032342e504e47|]
+Jan  7 13:14:12 10.71.60.0 u90930781 open "/index-tzdp.html" flags READ mode 0666
+Jan  7 13:14:12 10.71.60.0 u90930781 open "/janklanding.css" flags READ mode 0666
+Jan  7 13:14:12 10.71.60.0 u90930781 close "/index-tzdp.html" bytes read 47194 written 0
+Jan  7 13:14:12 10.71.60.0 u90930781 [10.71.60.0|get|0|47194|0|0|0|2f696e6465782d747a64702e68746d6c|]
+Jan  7 13:14:13 10.71.60.0 u90930781 close "/janklanding.css" bytes read 261 written 0
+Jan  7 13:14:13 10.71.60.0 u90930781 [10.71.60.0|get|1|261|0|0|0|2f6a616e6b6c616e64696e672e637373|]
+Jan  7 13:14:13 10.71.60.0 u90930781 open "/template.html" flags READ mode 0666
+Jan  7 13:14:13 10.71.60.0 u90930781 open "/index2.html" flags READ mode 0666
+Jan  7 13:14:13 10.71.60.0 u90930781 close "/template.html" bytes read 7282 written 0
+Jan  7 13:14:13 10.71.60.0 u90930781 [10.71.60.0|get|0|7282|0|0|0|2f74656d706c6174652e68746d6c|]
+Jan  7 13:14:13 10.71.60.0 u90930781 close "/index2.html" bytes read 229 written 0
+Jan  7 13:14:13 10.71.60.0 u90930781 [10.71.60.0|get|0|229|0|0|0|2f696e646578322e68746d6c|]
+Jan  7 13:14:13 10.71.60.0 u90930781 open "/index-test.html" flags READ mode 0666
+Jan  7 13:14:13 10.71.60.0 u90930781 open "/comingsoon.html" flags READ mode 0666
+Jan  7 13:14:13 10.71.60.0 u90930781 close "/index-test.html" bytes read 21596 written 0
+Jan  7 13:14:13 10.71.60.0 u90930781 [10.71.60.0|get|0|21596|0|0|0|2f696e6465782d746573742e68746d6c|]
+Jan  7 13:14:13 10.71.60.0 u90930781 close "/comingsoon.html" bytes read 46832 written 0
+Jan  7 13:14:13 10.71.60.0 u90930781 [10.71.60.0|get|0|46832|0|0|0|2f636f6d696e67736f6f6e2e68746d6c|]
+Jan  7 13:14:13 10.71.60.0 u90930781 open "/about2.html" flags READ mode 0666
+Jan  7 13:14:13 10.71.60.0 u90930781 open "/janklanding.html" flags READ mode 0666
+Jan  7 13:14:13 10.71.60.0 u90930781 close "/janklanding.html" bytes read 487 written 0
+Jan  7 13:14:13 10.71.60.0 u90930781 [10.71.60.0|get|0|487|0|0|0|2f6a616e6b6c616e64696e672e68746d6c|]
+Jan  7 13:14:13 10.71.60.0 u90930781 close "/about2.html" bytes read 8804 written 0
+Jan  7 13:14:13 10.71.60.0 u90930781 [10.71.60.0|get|0|8804|0|0|0|2f61626f7574322e68746d6c|]
+Jan  7 13:14:13 10.71.60.0 u90930781 open "/TweenMax.min.js" flags READ mode 0666
+Jan  7 13:14:14 10.71.60.0 u90930781 open "/three.min.js" flags READ mode 0666
+Jan  7 13:14:14 10.71.60.0 u90930781 close "/TweenMax.min.js" bytes read 107961 written 0
+Jan  7 13:14:14 10.71.60.0 u90930781 [10.71.60.0|get|1|107961|0|0|0|2f547765656e4d61782e6d696e2e6a73|]
+Jan  7 13:14:14 10.71.60.0 u90930781 open "/OrbitControls-2.js" flags READ mode 0666
+Jan  7 13:14:14 10.71.60.0 u90930781 close "/OrbitControls-2.js" bytes read 24144 written 0
+Jan  7 13:14:14 10.71.60.0 u90930781 [10.71.60.0|get|0|24144|0|0|0|2f4f72626974436f6e74726f6c732d322e6a73|]
+Jan  7 13:14:14 10.71.60.0 u90930781 open "/janklanding.js" flags READ mode 0666
+Jan  7 13:14:14 10.71.60.0 u90930781 close "/janklanding.js" bytes read 12173 written 0
+Jan  7 13:14:14 10.71.60.0 u90930781 [10.71.60.0|get|0|12173|0|0|0|2f6a616e6b6c616e64696e672e6a73|]
+Jan  7 13:14:14 10.71.60.0 u90930781 open "/jank-cover-cardfront_1920.PNG" flags READ mode 0666
+Jan  7 13:14:15 10.71.60.0 u90930781 close "/three.min.js" bytes read 496830 written 0
+Jan  7 13:14:15 10.71.60.0 u90930781 [10.71.60.0|get|1|496830|0|0|0|2f74687265652e6d696e2e6a73|]
+Jan  7 13:14:15 10.71.60.0 u90930781 open "/bas.js" flags READ mode 0666
+Jan  7 13:14:15 10.71.60.0 u90930781 close "/bas.js" bytes read 32226 written 0
+Jan  7 13:14:15 10.71.60.0 u90930781 [10.71.60.0|get|0|32226|0|0|0|2f6261732e6a73|]
+Jan  7 13:14:15 10.71.60.0 u90930781 open "/jank-cover-cardback_1920.PNG" flags READ mode 0666
+Jan  7 13:14:16 10.71.60.0 u90930781 close "/jank-cover-cardfront_1920.PNG" bytes read 2714093 written 0
+Jan  7 13:14:16 10.71.60.0 u90930781 [10.71.60.0|get|2|2714093|0|0|0|2f6a616e6b2d636f7665722d6361726466726f6e745f313932302e504e47|]
+Jan  7 13:14:16 10.71.60.0 u90930781 open "/.htaccess" flags READ mode 0666
+Jan  7 13:14:17 10.71.60.0 u90930781 close "/.htaccess" bytes read 122 written 0
+Jan  7 13:14:17 10.71.60.0 u90930781 [10.71.60.0|get|1|122|0|0|0|2f2e6874616363657373|]
+Jan  7 13:14:17 10.71.60.0 u90930781 close "/jank-cover-cardback_1920.PNG" bytes read 1648562 written 0
+Jan  7 13:14:17 10.71.60.0 u90930781 [10.71.60.0|get|2|1648562|0|0|0|2f6a616e6b2d636f7665722d636172646261636b5f313932302e504e47|]
+Jan  7 13:14:17 10.71.60.0 u90930781 open "/tzdplanding.html" flags READ mode 0666
+Jan  7 13:14:17 10.71.60.0 u90930781 open "/default.css" flags READ mode 0666
+Jan  7 13:14:17 10.71.60.0 u90930781 close "/tzdplanding.html" bytes read 47194 written 0
+Jan  7 13:14:17 10.71.60.0 u90930781 [10.71.60.0|get|0|47194|0|0|0|2f747a64706c616e64696e672e68746d6c|]
+Jan  7 13:14:17 10.71.60.0 u90930781 close "/default.css" bytes read 468 written 0
+Jan  7 13:14:17 10.71.60.0 u90930781 [10.71.60.0|get|0|468|0|0|0|2f64656661756c742e637373|]
+Jan  7 13:14:17 10.71.60.0 u90930781 open "/tzdp_big.png" flags READ mode 0666
+Jan  7 13:14:17 10.71.60.0 u90930781 open "/tzdp_small.jpg" flags READ mode 0666
+Jan  7 13:14:17 10.71.60.0 u90930781 close "/tzdp_small.jpg" bytes read 91345 written 0
+Jan  7 13:14:17 10.71.60.0 u90930781 [10.71.60.0|get|0|91345|0|0|0|2f747a64705f736d616c6c2e6a7067|]
+Jan  7 13:14:17 10.71.60.0 u90930781 open "/Medium-FabGlitch.png" flags READ mode 0666
+Jan  7 13:14:18 10.71.60.0 u90930781 close "/Medium-FabGlitch.png" bytes read 69240 written 0
+Jan  7 13:14:18 10.71.60.0 u90930781 [10.71.60.0|get|1|69240|0|0|0|2f4d656469756d2d466162476c697463682e706e67|]
+Jan  7 13:14:18 10.71.60.0 u90930781 open "/bg2600l-dd.jpg" flags READ mode 0666
+Jan  7 13:14:18 10.71.60.0 u90930781 close "/tzdp_big.png" bytes read 1355169 written 0
+Jan  7 13:14:18 10.71.60.0 u90930781 [10.71.60.0|get|1|1355169|0|0|0|2f747a64705f6269672e706e67|]
+Jan  7 13:14:18 10.71.60.0 u90930781 close "/bg2600l-dd.jpg" bytes read 204410 written 0
+Jan  7 13:14:18 10.71.60.0 u90930781 [10.71.60.0|get|0|204410|0|0|0|2f6267323630306c2d64642e6a7067|]
+Jan  7 13:14:18 10.71.60.0 u90930781 open "/bg.jpg" flags READ mode 0666
+Jan  7 13:14:18 10.71.60.0 u90930781 session closed for local user u90930781 from [10.71.60.0]
+Jan  7 13:14:18 10.71.60.0 u90930781 Connection closed by 10.71.60.0 port 12582
+Jan  7 13:14:18 10.71.60.0 u90930781 close "/bg.jpg" bytes read 589526 written 0
+Jan  7 13:14:18 10.71.60.0 u90930781 [10.71.60.0|get|0|589526|0|0|0|2f62672e6a7067|]
+Jan  7 13:14:18 10.71.60.0 u90930781 session closed for local user u90930781 from [10.71.60.0]
+Jan  7 13:14:18 10.71.60.0 u90930781 Connection closed by 10.71.60.0 port 12580
+Jan  7 13:14:18 10.71.60.0 u90930781 Connection from 10.71.60.0 port 34616 on 74.208.59.45 port 22 rdomain ""
+Jan  7 13:14:19 10.71.60.0 u90930781 Accepted password for u90930781 from 10.71.60.0 port 34616 ssh2
+Jan  7 13:14:19 10.71.60.0 u90930781 Starting session: subsystem 'sftp' for u90930781 from 10.71.60.0 port 34616 id 0
+Jan  7 13:14:19 10.71.60.0 u90930781 session opened for local user u90930781 from [10.71.60.0]
+Jan  7 13:14:19 10.71.60.0 u90930781 Connection from 10.71.60.0 port 34620 on 74.208.59.45 port 22 rdomain ""
+Jan  7 13:14:19 10.71.60.0 u90930781 Accepted password for u90930781 from 10.71.60.0 port 34620 ssh2
+Jan  7 13:14:19 10.71.60.0 u90930781 open "/logs/access.log.01.7.gz" flags READ mode 0666
+Jan  7 13:14:19 10.71.60.0 u90930781 Starting session: subsystem 'sftp' for u90930781 from 10.71.60.0 port 34620 id 0
+Jan  7 13:14:19 10.71.60.0 u90930781 session opened for local user u90930781 from [10.71.60.0]
+Jan  7 13:14:19 10.71.60.0 u90930781 close "/logs/access.log.01.7.gz" bytes read 7198 written 0
+Jan  7 13:14:19 10.71.60.0 u90930781 [10.71.60.0|get|0|7198|0|0|0|2f6c6f67732f6163636573732e6c6f672e30312e372e677a|]
+Jan  7 13:14:19 10.71.60.0 u90930781 open "/logs/access.log.01.4.gz" flags READ mode 0666
+Jan  7 13:14:19 10.71.60.0 u90930781 open "/logs/access.log.01.6.gz" flags READ mode 0666
+Jan  7 13:14:19 10.71.60.0 u90930781 close "/logs/access.log.01.4.gz" bytes read 7356 written 0
+Jan  7 13:14:19 10.71.60.0 u90930781 [10.71.60.0|get|0|7356|0|0|0|2f6c6f67732f6163636573732e6c6f672e30312e342e677a|]
+Jan  7 13:14:19 10.71.60.0 u90930781 close "/logs/access.log.01.6.gz" bytes read 6230 written 0
+Jan  7 13:14:19 10.71.60.0 u90930781 [10.71.60.0|get|0|6230|0|0|0|2f6c6f67732f6163636573732e6c6f672e30312e362e677a|]
+Jan  7 13:14:19 10.71.60.0 u90930781 open "/logs/access.log.01.1.gz" flags READ mode 0666
+Jan  7 13:14:20 10.71.60.0 u90930781 open "/logs/access.log.02.2.gz" flags READ mode 0666
+Jan  7 13:14:20 10.71.60.0 u90930781 close "/logs/access.log.01.1.gz" bytes read 21162 written 0
+Jan  7 13:14:20 10.71.60.0 u90930781 [10.71.60.0|get|1|21162|0|0|0|2f6c6f67732f6163636573732e6c6f672e30312e312e677a|]
+Jan  7 13:14:20 10.71.60.0 u90930781 close "/logs/access.log.02.2.gz" bytes read 5973 written 0
+Jan  7 13:14:20 10.71.60.0 u90930781 [10.71.60.0|get|0|5973|0|0|0|2f6c6f67732f6163636573732e6c6f672e30322e322e677a|]
+Jan  7 13:14:20 10.71.60.0 u90930781 open "/logs/access.log.51.gz" flags READ mode 0666
+Jan  7 13:14:20 10.71.60.0 u90930781 open "/logs/access.log.52.gz" flags READ mode 0666
+Jan  7 13:14:20 10.71.60.0 u90930781 close "/logs/access.log.52.gz" bytes read 47254 written 0
+Jan  7 13:14:20 10.71.60.0 u90930781 close "/logs/access.log.51.gz" bytes read 168210 written 0
+Jan  7 13:14:20 10.71.60.0 u90930781 [10.71.60.0|get|0|47254|0|0|0|2f6c6f67732f6163636573732e6c6f672e35322e677a|]
+Jan  7 13:14:20 10.71.60.0 u90930781 [10.71.60.0|get|0|168210|0|0|0|2f6c6f67732f6163636573732e6c6f672e35312e677a|]
+Jan  7 13:14:20 10.71.60.0 u90930781 open "/logs/access.log.50.gz" flags READ mode 0666
+Jan  7 13:14:20 10.71.60.0 u90930781 open "/logs/access.log.48.gz" flags READ mode 0666
+Jan  7 13:14:20 10.71.60.0 u90930781 close "/logs/access.log.50.gz" bytes read 98443 written 0
+Jan  7 13:14:20 10.71.60.0 u90930781 [10.71.60.0|get|0|98443|0|0|0|2f6c6f67732f6163636573732e6c6f672e35302e677a|]
+Jan  7 13:14:20 10.71.60.0 u90930781 close "/logs/access.log.48.gz" bytes read 86849 written 0
+Jan  7 13:14:20 10.71.60.0 u90930781 [10.71.60.0|get|0|86849|0|0|0|2f6c6f67732f6163636573732e6c6f672e34382e677a|]
+Jan  7 13:14:20 10.71.60.0 u90930781 open "/logs/access.log.47.gz" flags READ mode 0666
+Jan  7 13:14:20 10.71.60.0 u90930781 open "/logs/access.log.02.1.gz" flags READ mode 0666
+Jan  7 13:14:21 10.71.60.0 u90930781 close "/logs/access.log.47.gz" bytes read 50931 written 0
+Jan  7 13:14:21 10.71.60.0 u90930781 [10.71.60.0|get|1|50931|0|0|0|2f6c6f67732f6163636573732e6c6f672e34372e677a|]
+Jan  7 13:14:21 10.71.60.0 u90930781 close "/logs/access.log.02.1.gz" bytes read 4754 written 0
+Jan  7 13:14:21 10.71.60.0 u90930781 [10.71.60.0|get|1|4754|0|0|0|2f6c6f67732f6163636573732e6c6f672e30322e312e677a|]
+Jan  7 13:14:21 10.71.60.0 u90930781 open "/logs/access.log.49.gz" flags READ mode 0666
+Jan  7 13:14:21 10.71.60.0 u90930781 open "/logs/access.log.46.gz" flags READ mode 0666
+Jan  7 13:14:21 10.71.60.0 u90930781 close "/logs/access.log.46.gz" bytes read 70580 written 0
+Jan  7 13:14:21 10.71.60.0 u90930781 [10.71.60.0|get|0|70580|0|0|0|2f6c6f67732f6163636573732e6c6f672e34362e677a|]
+Jan  7 13:14:21 10.71.60.0 u90930781 close "/logs/access.log.49.gz" bytes read 137721 written 0
+Jan  7 13:14:21 10.71.60.0 u90930781 [10.71.60.0|get|0|137721|0|0|0|2f6c6f67732f6163636573732e6c6f672e34392e677a|]
+Jan  7 13:14:21 10.71.60.0 u90930781 open "/logs/traffic.db" flags READ mode 0666
+Jan  7 13:14:21 10.71.60.0 u90930781 open "/logs/last_traffic" flags READ mode 0666
+Jan  7 13:14:21 10.71.60.0 u90930781 close "/logs/last_traffic" bytes read 0 written 0
+Jan  7 13:14:21 10.71.60.0 u90930781 [10.71.60.0|get|0|0|0|0|0|2f6c6f67732f6c6173745f74726166666963|]
+Jan  7 13:14:21 10.71.60.0 u90930781 close "/logs/traffic.db" bytes read 45056 written 0
+Jan  7 13:14:21 10.71.60.0 u90930781 [10.71.60.0|get|0|45056|0|0|0|2f6c6f67732f747261666669632e6462|]
+Jan  7 13:14:21 10.71.60.0 u90930781 open "/logs/info.py" flags READ mode 0666
+Jan  7 13:14:21 10.71.60.0 u90930781 open "/logs/info.pl" flags READ mode 0666
+Jan  7 13:14:21 10.71.60.0 u90930781 close "/logs/info.py" bytes read 6319 written 0
+Jan  7 13:14:21 10.71.60.0 u90930781 [10.71.60.0|get|0|6319|0|0|0|2f6c6f67732f696e666f2e7079|]
+Jan  7 13:14:21 10.71.60.0 u90930781 close "/logs/info.pl" bytes read 4176 written 0
+Jan  7 13:14:21 10.71.60.0 u90930781 [10.71.60.0|get|0|4176|0|0|0|2f6c6f67732f696e666f2e706c|]
+Jan  7 13:14:21 10.71.60.0 u90930781 open "/logs/info.php5" flags READ mode 0666
+Jan  7 13:14:21 10.71.60.0 u90930781 open "/logs/sftp.log" flags READ mode 0666
