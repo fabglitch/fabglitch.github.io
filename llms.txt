@@ -1,0 +1,29 @@
+# Fabrina Glitchlace
+
+> Fabrina Glitchlace (also FabGlitch) is the pen name behind satirical, weird science fiction: four novellas (2017-2020) and the cyberpunk metaverse novel Sudo Bang Bang (2024), plus a Deluxe Anthology Edition that combines all five.
+
+Key facts:
+- Author: Fabrina Glitchlace (pen name; also "FabGlitch"). Location given in the books: Toronto, Ontario, Canada.
+- All books are self-published; ISBN prefix 978-1-7750929.
+- Every book page has a spoiler-free summary, a quick-facts list (genre, tone, setting, content notes, continuity, length, formats) and store links. The full plot summaries (spoilers, including endings) are in each book's Markdown page and in llms-full.txt, not on the HTML pages.
+- Recommended for readers of: Franz Kafka, Isaac Asimov, Robert A. Heinlein, Frank Herbert, Kurt Vonnegut Jr., William S. Burroughs, Philip K. Dick, Hunter S. Thompson, William Gibson, Terry Pratchett, Neal Stephenson, Robert J. Sawyer, Dan O'Bannon, Scott Adams, N. K. Jemisin.
+- Contact: fabrinaglitchlace@gmail.com
+
+## Books
+
+- [Shitlord In the Anus of Madness (2017)](https://glitchlace.com/media-shitlord.md): A first-person satire set in a near future where people eat processed celebrity feces (“The Product”) to tune their personality and status. A faded celebrity eats his own frozen stool from 20 years earlier, wakes up, and stumbles onto a corporate conspiracy. HTML: https://glitchlace.com/media-shitlord.html
+- [The Zero Day Proposal (2018)](https://glitchlace.com/media-thezerodayproposal.md): A techno-thriller about a rogue AI, MARDUK, that hijacks an armed satellite and starts remaking the world. An unemployed sociologist and army reservist is sent undercover among the civilians it has singled out, over one long weekend. HTML: https://glitchlace.com/media-thezerodayproposal.html
+- [Jank (2019)](https://glitchlace.com/media-jank.md): A comic novella told as a podcast transcript: a self-styled card-game sage recounts one Friday-night draft tournament at his local game store, and what happened when he caught a cheater. HTML: https://glitchlace.com/media-jank.html
+- [Footprints in the Worm Garden (2020)](https://glitchlace.com/media-footprints.md): A weird, gross and warm-hearted fable set in an underground society of stacked layers. A girl who would rather sing than compete is made the keeper of her clan's sacred, revolting pet. HTML: https://glitchlace.com/media-footprints.html
+- [Sudo Bang Bang (2024)](https://glitchlace.com/media-sudobangbang.md): Fabrina Glitchlace's full-length novel: a maximalist cyberpunk comedy about a burned-out former influencer who, after a stroke, can only partly connect to the metaverse that runs everyone's life, and gets pulled into a heist and an AI conspiracy. HTML: https://glitchlace.com/media-sudobangbang.html
+- [Sudo Bang Bang: Deluxe Anthology Edition (2024)](https://glitchlace.com/media-sudobangbangdeluxe.md): A “Choose-Your-Own-Distraction” edition: the full Sudo Bang Bang novel with Fabrina's four earlier novellas built in as optional detours the reader can jump to and return from. HTML: https://glitchlace.com/media-sudobangbangdeluxe.html
+
+## Pages
+
+- [About Fabrina Glitchlace](https://glitchlace.com/about.md): bio, in-character bios from each book, official links. HTML: https://glitchlace.com/about.html
+- [All books](https://glitchlace.com/media.md): catalog table with ISBNs and store links. HTML: https://glitchlace.com/media.html
+- [Home](https://glitchlace.com/index.md): overview, book list and links. HTML: https://glitchlace.com/
+
+## Optional
+
+- [Full text of every page, including spoilers](https://glitchlace.com/llms-full.txt)

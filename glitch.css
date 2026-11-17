@@ -1,0 +1,625 @@
+/* ==========================================================================
+   glitch.css: "glitch-gothic / cyberpunk lace" theme for glitchlace.com
+   Experimental. Generated into site-glitch/ by build.py (THEME=glitch).
+   Documentation: website-agent-layer/DESIGN-GLITCH.md
+   Sections:  0 tokens · 1 intensity · 2 base · 3 effect layers · 4 header/nav
+              5 panel + lace · 6 glitch text · 7 covers/datamosh · 8 page parts
+              9 scroll-driven · 10 view transitions · 11 calm + reduced motion
+   ========================================================================== */
+
+/* ---------- 0. tokens -------------------------------------------------- */
+@property --gl-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@property --gl-vig { syntax: "<color>"; inherits: true; initial-value: rgb(0 0 0 / 0.7); }
+
+:root {
+  color-scheme: dark;
+  /* original palette, as found in _source/src/*.css */
+  --fg-black: #000000;      /* page background everywhere */
+  --fg-white: #ffffff;      /* body text */
+  --fg-green: #00ff00;      /* h1, rgb(0,255,0) */
+  --fg-pink: #ee55ff;       /* h2 + link hover */
+  --fg-violet: #9922cc;     /* hover text-shadow */
+  --fg-pink-soft: #ffc0cb;  /* nav text-shadow "pink" */
+  --fg-red: #ff0000;        /* link glow 1 (default.css) */
+  --fg-magenta: #ff00ff;    /* link glow 2 */
+  --fg-blue: #0000ff;       /* link glow 3, desktophd div bg */
+  --fg-plum: #553366;       /* table rule (agent-layer.css) */
+
+  /* sampled from the covers (PIL median-cut, see DESIGN-GLITCH.md) */
+  --cv-sl-bone: #a1a999;   --cv-sl-mud: #3b3325;                               /* Shitlord */
+  --cv-tzdp-lime: #b3cb3b; --cv-tzdp-teal: #215b6d; --cv-tzdp-plum: #582f73;  /* Zero Day */
+  --cv-jank-wine: #692a37; --cv-jank-sage: #6c9981;                           /* Jank */
+  --cv-fp-rust: #af5818;   --cv-fp-tan: #d2a585;                              /* Footprints */
+  --cv-sbb-violet: #8836a9; --cv-sbb-lilac: #b49abb;                          /* Sudo Bang Bang */
+  --cv-dae-orchid: #b447d0; --cv-dae-blue: #4b50d7; --cv-dae-pink: #e89ae1;   /* Deluxe (SBBDAE PNG) */
+
+  /* roles (verify.py checks these for WCAG AA against --gl-panel-worst) */
+  --gl-text: #f4eef8;
+  --gl-muted: #cfc4d8;
+  --gl-panel: rgb(9 5 13 / 0.86);
+  --gl-panel-worst: #1c1820;  /* panel composited over the brightest dimmed background */
+  --gl-rule: var(--fg-plum);
+  --accent: #ee55ff;          /* = --fg-pink; per-book pages override */
+  --accent-deep: var(--fg-violet);
+  --accent-2: var(--fg-green);
+  --split-a: var(--fg-magenta);
+  --split-b: var(--cv-dae-blue);
+
+  --sans: Verdana, Geneva, Tahoma, Arial, sans-serif;  /* original: Verdana / Arial */
+  --mono: "Courier New", ui-monospace, Menlo, Consolas, monospace;
+
+  /* intensity: 0 calm, 1 glitchy (default), 2 unhinged */
+  --gl-i: 1;
+}
+
+/* per-book sub-themes: accent derived from each cover, lightened in HSL until AA on the panel */
+[data-book="shitlord"]           { --accent: #b2c2a3; --accent-deep: var(--cv-sl-mud);      --accent-2: var(--cv-sl-bone); }
+[data-book="zeroday"]            { --accent: #b3cb3b; --accent-deep: var(--cv-tzdp-teal);   --accent-2: var(--cv-tzdp-plum); }
+[data-book="jank"]               { --accent: #e08598; --accent-deep: var(--cv-jank-wine);   --accent-2: var(--cv-jank-sage); }
+[data-book="footprints"]         { --accent: #fd9b54; --accent-deep: var(--cv-fp-rust);     --accent-2: var(--cv-fp-tan); }
+[data-book="sudobangbang"]       { --accent: #c97de8; --accent-deep: var(--cv-sbb-violet);  --accent-2: var(--cv-sbb-lilac); }
+[data-book="sudobangbangdeluxe"] { --accent: #e89ae1; --accent-deep: var(--cv-dae-orchid);  --accent-2: var(--cv-dae-blue); }
+
+/* ---------- 1. intensity switch (works with JS off via :has) ---------- */
+:root:has(#gl-i-a:checked), :root[data-gl-i="a"] { --gl-i: 1; }   /* auto = glitchy (calm under reduced motion, see §11) */
+:root:has(#gl-i-0:checked), :root[data-gl-i="0"] { --gl-i: 0; }
+:root:has(#gl-i-1:checked), :root[data-gl-i="1"] { --gl-i: 1; }
+:root:has(#gl-i-2:checked), :root[data-gl-i="2"] { --gl-i: 2; }
+:root {
+  --gl-shift: calc(1.5px + var(--gl-i) * 2px);            /* RGB split offset */
+  --gl-split-o: calc(0.45 + var(--gl-i) * 0.2);           /* split layer opacity */
+  --gl-noise-o: calc(0.03 + var(--gl-i) * 0.03);          /* grain */
+  --gl-scan-o: calc(0.12 + var(--gl-i) * 0.07);           /* scanline darkness */
+  --gl-bg-b: calc(0.2 + var(--gl-i) * 0.04);             /* background brightness */
+  /* cycle lengths (glitchy). Every keyframe set keeps >=0.34s between changes at the shortest duration used. */
+  --gl-burst: 3.6s;     /* heading tear bursts */
+  --gl-tear: 10s;       /* whole-panel slice displacement */
+  --gl-flick: 5.5s;     /* nav flicker */
+  --gl-jit: 5s;         /* idle cover RGB jitter */
+  --gl-roll: 7s;        /* scanline roll */
+  --gl-roll-a: 0.07;    /* roll band brightness */
+  --gl-blip: 13s;       /* "signal lost" blip */
+}
+:root:has(#gl-i-2:checked), :root[data-gl-i="2"] {
+  --gl-burst: 2.4s; --gl-tear: 7s; --gl-flick: 3s; --gl-jit: 2.6s; --gl-roll: 4s; --gl-roll-a: 0.1; --gl-blip: 7s;
+}
+
+/* ---------- 2. base ---------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--fg-black); scrollbar-color: var(--accent-deep) #000; }
+body.gl {
+  margin: 0; min-height: 100vh; overflow-x: clip;
+  color: var(--gl-text); background: transparent;
+  font: 400 clamp(1rem, 0.94rem + 0.25vw, 1.1rem)/1.65 var(--sans);
+}
+.gl p, .gl li, .gl dd { max-width: 75ch; }
+.gl .al-center, .gl .al-center p { margin-inline: auto; text-align: center; }
+.gl a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.gl a:hover {
+  color: var(--fg-green);
+  text-shadow: 1px 1px 2px var(--fg-blue), 0 0 25px var(--fg-blue), 0 0 5px var(--fg-green); /* default.css hover glow */
+}
+.gl :focus-visible {
+  outline: 3px solid var(--fg-green); outline-offset: 3px;
+  box-shadow: 0 0 0 6px #000, 0 0 18px 6px var(--split-a);
+  border-radius: 4px;
+}
+.gl h1, .gl h2, .gl h3 { line-height: 1.15; text-wrap: balance; }
+.gl h2 { color: var(--accent); font-size: clamp(1.5rem, 1rem + 2.4vw, 2.6rem); margin: 0.3em 0 0.4em; }
+.gl h3 { color: var(--accent); font-size: 1.2rem; }
+.gl img { max-width: 100%; height: auto; }
+.gl-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.gl-skip {
+  position: absolute; left: 1rem; top: 0; z-index: 100; transform: translateY(-120%);
+  background: #000; color: var(--fg-green); padding: 0.5em 1em; border: 2px solid var(--fg-green);
+}
+.gl-skip:focus { transform: none; }
+
+/* ---------- 3. effect layers ------------------------------------------ */
+/* 3a. background: the original site's "rainbow" trick (cover image stretched to 4000% and swept), slowed way down */
+.gl-bg {
+  position: fixed; inset: 0; z-index: -2;
+  background: var(--cover) 0 0 / 4000% 100% no-repeat, #000;
+  filter: brightness(var(--gl-bg-b)) saturate(2.2) contrast(1.25);
+  animation: gl-rainbow 120s linear infinite alternate;
+}
+/* palette wash so pale covers still read as magenta/blue/green */
+.gl-bg::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(160deg, var(--accent-deep), transparent 45%, var(--split-b) 80%, var(--fg-green) 130%);
+  mix-blend-mode: color; opacity: 0.8;
+}
+/* 3b. lace net over it: interlocking rings + doily spokes, masked to the top of the page */
+.gl-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle, transparent 0 15px, color-mix(in srgb, var(--accent) 55%, transparent) 15.5px 16.5px, transparent 17px) 0 0 / 32px 32px,
+    radial-gradient(circle, transparent 0 15px, color-mix(in srgb, var(--accent-2) 40%, transparent) 15.5px 16.5px, transparent 17px) 16px 16px / 32px 32px,
+    radial-gradient(circle, color-mix(in srgb, var(--accent) 70%, transparent) 0 1.6px, transparent 2px) 16px 0 / 32px 32px;
+  mix-blend-mode: screen; opacity: 0.22;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 0 35%, transparent 80%);
+          mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 0 35%, transparent 80%);
+}
+@keyframes gl-rainbow { to { background-position: 100% 0, 0 0; } }
+
+/* 3c. CRT stack: scanlines, rolling band, feTurbulence grain, vignette. pointer-events off; nothing here flashes. */
+.gl-fx { position: fixed; inset: 0; z-index: 60; pointer-events: none; }
+.gl-scan {
+  position: absolute; inset: 0; overflow: hidden;
+  background: repeating-linear-gradient(to bottom, rgb(0 0 0 / var(--gl-scan-o)) 0 1px, transparent 1px 3px);
+}
+.gl-scan::after {
+  content: ""; position: absolute; left: 0; right: 0; top: -25vh; height: 25vh;
+  background: linear-gradient(transparent, rgb(255 255 255 / var(--gl-roll-a)) 55%, rgb(255 0 255 / calc(var(--gl-roll-a) * 0.6)) 60%, transparent);
+  animation: gl-roll var(--gl-roll) linear infinite;
+}
+/* thin VHS tracking line, faster than the band; moves, never blinks */
+.gl-scan::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -4px; height: 3px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.16) 20%, rgb(0 255 0 / 0.12) 60%, transparent);
+  animation: gl-roll calc(var(--gl-roll) * 0.45) linear infinite; animation-delay: -1.3s;
+}
+@keyframes gl-roll { to { transform: translateY(150vh); } }
+/* 3d. random "signal lost" blip: a short band of static. Two state changes per cycle (<=1 flash per 7s),
+   a strip, never the whole screen. glitch.js moves it to a new height every cycle. */
+.gl-blip {
+  position: absolute; left: 0; right: 0; top: var(--gl-blip-y, 38%); height: clamp(36px, 8vh, 80px);
+  opacity: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(to bottom, rgb(255 255 255 / 0.10) 0 1px, transparent 1px 3px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='60'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02 .8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 0 0 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 300px 100%,
+    rgb(10 0 14 / 0.55);
+  mix-blend-mode: hard-light;
+  animation: gl-blip var(--gl-blip) steps(1, end) infinite; animation-delay: -4s;
+}
+.gl-blip::after {
+  content: "\259A  SIGNAL LOST  \259A" / ""; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  font: 700 clamp(0.75rem, 0.6rem + 0.6vw, 1rem) var(--mono); letter-spacing: 0.3em; color: var(--fg-green);
+  background: #000; padding: 0.15em 0.6em; mix-blend-mode: normal;
+}
+@keyframes gl-blip {
+  0%, 80% { opacity: 0; transform: none; }
+  85% { opacity: 0.9; transform: translateX(-3%) skewX(-8deg); }
+  90% { opacity: 0.7; transform: translateX(4%) scaleY(0.6); }
+  95%, 100% { opacity: 0; transform: none; }
+}
+.gl-noise {
+  position: absolute; inset: -60px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 -.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: var(--gl-noise-o); mix-blend-mode: overlay;
+  animation: gl-grain 1s steps(3) infinite;   /* 3 texture moves per second, constant mean luminance */
+}
+@keyframes gl-grain { 0% { transform: translate(0, 0); } 33% { transform: translate(-37px, 21px); } 66% { transform: translate(23px, -41px); } 100% { transform: translate(0, 0); } }
+.gl-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 58%, var(--gl-vig, rgb(0 0 0 / 0.7)) 100%);
+  box-shadow: inset 0 0 90px rgb(0 0 0 / 0.6);
+  transition: --gl-vig 0.6s;
+}
+/* :has() — opening a spoiler tints the CRT red: you are now in spoiler territory */
+body:has(.al-spoiler[open]) { --gl-vig: rgb(120 0 30 / 0.75); }
+
+/* ---------- 4. header / nav ------------------------------------------- */
+.gl-header {
+  position: sticky; top: 0; z-index: 40;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.4rem 1.5rem;
+  padding: 0.6rem clamp(0.8rem, 3vw, 2rem);
+  background: rgb(0 0 0 / 0.5);
+  -webkit-backdrop-filter: blur(10px) saturate(1.6); backdrop-filter: blur(10px) saturate(1.6);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  container-type: inline-size; container-name: header;
+}
+/* scroll-progress bar (scroll-driven; static/empty where unsupported) */
+.gl-header::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px;
+  background: linear-gradient(90deg, var(--split-a), var(--accent), var(--fg-green));
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+@supports (animation-timeline: scroll()) {
+  .gl-header::after { animation: gl-progress linear both; animation-timeline: scroll(root block); }
+}
+@keyframes gl-progress { to { transform: scaleX(1); } }
+
+.gl-nav { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 1.4rem; }
+.gl-nav::before { content: "fabrina@glitchlace:~$" / ""; font: 0.85rem var(--mono); color: var(--fg-green); opacity: 0.85; }
+.gl-nav::after  { content: "\2588" / ""; font: 0.85rem var(--mono); color: var(--fg-green); animation: gl-blink 1.2s steps(1) infinite; }
+@container header (max-width: 640px) { .gl-nav::before { content: "~$" / ""; } .gl-nav::after { content: none; } }
+@keyframes gl-blink { 50% { opacity: 0; } }
+.gl-nav a {
+  font: italic 700 clamp(1rem, 0.8rem + 1vw, 1.45rem) var(--sans); letter-spacing: 0.04em;
+  color: var(--fg-white); text-decoration: none;
+  text-shadow: black 3px 3px 3px, var(--fg-pink-soft) 5px 5px 5px;  /* the original nav shadow */
+  transition: opacity 0.2s;
+}
+.gl-nav a.gl-brand { color: var(--fg-green); view-transition-name: gl-brand; }
+/* nav flicker: each link drops out of sync briefly (translate + hue, no opacity so hover dimming still works) */
+.gl-nav a { animation: gl-flick var(--gl-flick) steps(1, end) infinite; }
+.gl-nav a:nth-of-type(2n) { animation-delay: -1.9s; }
+.gl-nav a:nth-of-type(3n) { animation-delay: -3.4s; }
+.gl-nav a:nth-of-type(5n) { animation-delay: -0.7s; }
+@keyframes gl-flick {
+  84% { translate: 4px 0; filter: hue-rotate(110deg) saturate(2.5) brightness(1.3); }
+  90% { translate: -3px 1px; filter: hue-rotate(-60deg) blur(0.6px); }
+  96%, 100% { translate: none; filter: none; }
+}
+.gl-nav a[aria-current="page"] {
+  text-decoration: underline wavy var(--split-a) 2px; text-underline-offset: 0.35em;
+}
+/* :has() — hovering one nav item dims the others */
+.gl-nav:has(a:hover) a:not(:hover) { opacity: 0.55; }
+.gl-nav a:is(:hover, :focus-visible) { color: var(--fg-green); text-shadow: 1px 1px 2px var(--fg-blue), 0 0 25px var(--fg-blue), 0 0 5px var(--fg-green); }
+.gl-nav a:is(:hover, :focus-visible)::before,
+.gl-nav a:is(:hover, :focus-visible)::after { animation-name: gl-slice-hover; animation-duration: 0.9s; }
+
+.gl-intensity {
+  display: flex; align-items: center; gap: 0.25rem 0.5rem; flex-wrap: wrap;
+  margin: 0; padding: 0.15rem 0.6rem; border: 1px solid var(--gl-rule); border-radius: 999px;
+  font: 0.8rem var(--mono); color: var(--gl-muted); background: rgb(0 0 0 / 0.55);
+}
+.gl-intensity legend { float: left; padding: 0 0.4rem 0 0; color: var(--fg-green); }
+.gl-intensity legend::before { content: "sudo " / ""; color: var(--split-a); }
+.gl-intensity input { accent-color: var(--fg-green); margin: 0 0 0 0.3rem; }
+.gl-intensity label { cursor: pointer; }
+.gl-intensity input:checked + label { color: var(--fg-white); text-shadow: 0 0 6px var(--split-a); }
+
+/* ---------- 5. panel + lace trim -------------------------------------- */
+.gl-main {
+  position: relative; display: block;
+  width: min(72rem, 100% - 1.5rem); margin: 2rem auto 0;
+  padding: clamp(1.1rem, 3vw, 2.6rem);
+  background: var(--gl-panel);
+  -webkit-backdrop-filter: blur(8px) saturate(1.3); backdrop-filter: blur(8px) saturate(1.3);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 25px;                                   /* the original maincontent radius */
+  box-shadow: 0 0 0 1px #000, 0 0 60px -12px var(--accent-deep), inset 0 0 40px -20px var(--accent);
+  container-type: inline-size; container-name: main;
+  view-transition-name: gl-main;
+  animation: gl-panel-tear var(--gl-tear) steps(1, end) infinite; animation-delay: -3s;
+}
+/* whole-panel horizontal slice displacement (SVG #gl-tear: banded feDisplacementMap, x only).
+   0.35s+ per state at the shortest cycle; text is displaced, not recoloured, so contrast is untouched. */
+@keyframes gl-panel-tear {
+  0%, 88% { filter: none; translate: none; }
+  91% { filter: url(#gl-tear); translate: -5px 0; }
+  95% { filter: url(#gl-tear-2); translate: 4px 0; }
+  99%, 100% { filter: none; translate: none; }
+}
+:root:has(#gl-i-2:checked) .gl-main, :root[data-gl-i="2"] .gl-main { animation-name: gl-panel-tear-2; }
+@keyframes gl-panel-tear-2 {
+  0%, 38% { filter: none; translate: none; }
+  43% { filter: url(#gl-tear-2); translate: 6px 0; }
+  48%, 86% { filter: none; translate: none; }
+  91% { filter: url(#gl-tear); translate: -8px 0; }
+  96%, 100% { filter: none; translate: none; }
+}
+/* scalloped lace edging, top and bottom (pure radial-gradients) */
+.gl-main::before, .gl-main::after {
+  content: ""; position: absolute; left: 28px; right: 28px; height: 12px; pointer-events: none; opacity: 0.75;
+  background:
+    radial-gradient(circle at 50% 100%, transparent 0 5px, var(--accent) 5.5px 6.5px, transparent 7px) 0 0 / 14px 12px repeat-x,
+    radial-gradient(circle at 50% 50%, var(--accent) 0 1.4px, transparent 1.8px) 7px 2px / 14px 12px repeat-x;
+}
+.gl-main::before { top: -12px; }
+.gl-main::after  { bottom: -12px; transform: scaleY(-1); }
+
+/* ---------- 6. glitch text: RGB split via pseudo-element clip-path slices ---------- */
+.gl-glitch { position: relative; isolation: isolate; }
+.gl-glitch::before, .gl-glitch::after {
+  content: attr(data-text) / "";          /* duplicated text is decorative; empty alt for AT */
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  opacity: var(--gl-split-o); mix-blend-mode: screen;
+  animation: gl-slice-a var(--gl-burst) steps(1, end) infinite;
+}
+.gl-glitch::before { color: var(--split-a); z-index: 1; clip-path: inset(50% 0 50% 0); }  /* on top: tear slices during bursts only */
+.gl-glitch::after  { color: var(--split-b); transform: translate(var(--gl-shift), 0); animation-name: gl-slice-b; animation-delay: -1.1s; }
+/* bursts: at most one change every 0.36s (<3/s); the rest of the cycle is a steady split */
+@keyframes gl-slice-a {
+  0%   { clip-path: inset(12% 0 58% 0); transform: translate(calc(var(--gl-shift) * -3), 0); }
+  15%  { clip-path: inset(55% 0 18% 0); transform: translate(calc(var(--gl-shift) * 2.5), 0) skewX(-6deg); }
+  30%, 59% { clip-path: inset(50% 0 50% 0); transform: none; }
+  60%  { clip-path: inset(68% 0 6% 0);  transform: translate(calc(var(--gl-shift) * 3.5), 0); }
+  75%  { clip-path: inset(28% 0 48% 0); transform: translate(calc(var(--gl-shift) * -2), 1px); }
+  90%, 100% { clip-path: inset(50% 0 50% 0); transform: none; }
+}
+@keyframes gl-slice-b {
+  0%   { clip-path: inset(60% 0 8% 0);  transform: translate(calc(var(--gl-shift) * 3), 0); }
+  15%  { clip-path: inset(4% 0 70% 0);  transform: translate(calc(var(--gl-shift) * -2.5), 0); }
+  30%, 59% { clip-path: inset(0); transform: translate(var(--gl-shift), 0); }
+  60%  { clip-path: inset(35% 0 30% 0); transform: translate(calc(var(--gl-shift) * -3), -1px); }
+  75%, 100% { clip-path: inset(0); transform: translate(var(--gl-shift), 0); }
+}
+/* the heading itself jolts during the first burst (text stays fully legible) */
+@keyframes gl-jolt {
+  0%  { translate: calc(var(--gl-shift) * -1.2) 0; skew: -4deg 0; }
+  15% { translate: calc(var(--gl-shift) * 1) 0; skew: 3deg 0; }
+  30%, 100% { translate: none; skew: none; }
+}
+:is(h1, h2).gl-glitch { animation: gl-jolt var(--gl-burst) steps(1, end) infinite; }
+h2.gl-glitch:nth-of-type(2n) { animation-delay: -1.1s; }
+@keyframes gl-slice-hover {
+  0%   { clip-path: inset(0 0 62% 0);  transform: translate(-4px, 0) skewX(-8deg); }
+  34%  { clip-path: inset(48% 0 14% 0); transform: translate(5px, 0) skewX(6deg); }
+  67%  { clip-path: inset(22% 0 40% 0); transform: translate(-2px, 1px); }
+  100% { clip-path: inset(50% 0 50% 0); transform: none; }
+}
+/* unhinged: shorter cycles via the custom properties in §1 (2.4s burst = one change per 0.36s) */
+/* JS text-scramble overlay (glitch.js): aria-hidden copy drawn over the real, unchanged heading */
+.gl-scr { position: absolute; inset: 0; z-index: 2; pointer-events: none; white-space: inherit; }
+.gl-scrambling { color: transparent !important; text-shadow: none !important; }
+
+/* the hero title */
+.gl .al-h1 {
+  margin: 0.4em 0 0.2em; text-align: center;
+  font: 700 clamp(2.4rem, 1rem + 7vw, 6.4rem)/0.95 var(--sans); letter-spacing: -0.02em;
+  color: var(--fg-green); text-transform: uppercase;
+  text-shadow: 0 0 18px rgb(0 255 0 / 0.35);
+}
+.gl .al-h1::before, .gl .al-h1::after { text-shadow: none; }
+[data-page="index"] .al-h1 + .al-center::before { content: "> " / ""; color: var(--fg-green); font-family: var(--mono); }
+
+/* home doily: rotating lace rosette behind the title (@property --gl-angle) */
+.gl-doily {
+  position: absolute; z-index: -1; left: 50%; top: -1.5rem; width: min(78vw, 620px); aspect-ratio: 1; translate: -50% 0;
+  pointer-events: none; opacity: 0.32; mix-blend-mode: screen;
+  background:
+    repeating-conic-gradient(from var(--gl-angle), var(--accent) 0 1.2deg, transparent 1.2deg 7.5deg),
+    repeating-radial-gradient(circle, transparent 0 13px, var(--split-b) 13px 14.5px, transparent 14.5px 22px);
+  -webkit-mask-image: radial-gradient(circle, transparent 0 18%, #000 18.5% 21%, transparent 21.5% 27%, #000 27.5% 46%, transparent 49%);
+          mask-image: radial-gradient(circle, transparent 0 18%, #000 18.5% 21%, transparent 21.5% 27%, #000 27.5% 46%, transparent 49%);
+  animation: gl-spin 80s linear infinite;
+}
+@keyframes gl-spin { to { --gl-angle: 360deg; } }
+
+/* the Sudo Bang Bang call-to-action: animated conic border (@property) */
+[data-page="index"] .gl-main > div.al-center > a[href="media-sudobangbang.html"] {
+  display: inline-block; margin: 1rem auto; padding: 0.9rem 1.6rem; border-radius: 14px;
+  font: 700 1.05rem/1.5 var(--sans); color: var(--gl-text); text-decoration: none;
+  border: 3px solid transparent;
+  background:
+    linear-gradient(#0b0610, #0b0610) padding-box,
+    conic-gradient(from var(--gl-angle), var(--fg-magenta), var(--fg-green), var(--cv-dae-blue), var(--fg-pink), var(--fg-magenta)) border-box;
+  animation: gl-spin 6s linear infinite;
+  box-shadow: 0 0 30px -6px var(--split-a);
+  transition: transform 0.2s;
+}
+[data-page="index"] .gl-main > div.al-center > a[href="media-sudobangbang.html"]:hover { transform: scale(1.03) skewX(-3deg); color: var(--fg-green); }
+
+/* ---------- 7. covers: datamosh hover -------------------------------- */
+.gl-cover {
+  position: relative; display: inline-block; isolation: isolate; line-height: 0;
+  border-radius: 6px; overflow: hidden;
+  box-shadow: 0 0 0 1px #000, 0 0 0 2px color-mix(in srgb, var(--accent) 60%, transparent), 0 10px 30px -10px #000;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.gl-cover img { display: block; transition: filter 0.3s; }
+.gl-cover::before, .gl-cover::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: var(--cover) center / 100% 100% no-repeat; mix-blend-mode: screen;
+}
+.gl-cover::before { filter: url(#gl-red); }
+.gl-cover::after  { filter: url(#gl-blue); }
+/* idle RGB jitter: channel slices twitch briefly even without hover; staggered per cover */
+.gl-cover::before { animation: gl-jit-a var(--gl-jit) steps(1, end) infinite; }
+.gl-cover::after  { animation: gl-jit-b var(--gl-jit) steps(1, end) infinite; }
+.al-covers > :nth-child(2n) .gl-cover::before, .al-covers > :nth-child(2n) .gl-cover::after, .al-covers > .gl-cover:nth-child(2n)::before, .al-covers > .gl-cover:nth-child(2n)::after { animation-delay: -1.6s; }
+.al-covers > :nth-child(3n) .gl-cover::before, .al-covers > :nth-child(3n) .gl-cover::after, .al-covers > .gl-cover:nth-child(3n)::before, .al-covers > .gl-cover:nth-child(3n)::after { animation-delay: -3.3s; }
+@keyframes gl-jit-a {
+  0%, 77% { opacity: 0; transform: none; clip-path: none; }
+  80% { opacity: 0.85; transform: translate(-6px, 0); clip-path: inset(18% 0 52% 0); }
+  87% { opacity: 0.7;  transform: translate(4px, 0);  clip-path: inset(62% 0 12% 0); }
+  94%, 100% { opacity: 0; transform: none; clip-path: none; }
+}
+@keyframes gl-jit-b {
+  0%, 77% { opacity: 0; transform: none; clip-path: none; }
+  80% { opacity: 0.75; transform: translate(6px, 0); clip-path: inset(40% 0 30% 0); }
+  87%, 100% { opacity: 0; transform: none; clip-path: none; }
+}
+.gl-cover:is(:hover, :focus-visible) { transform: translateY(-3px) rotate(-0.6deg); box-shadow: 0 0 0 1px #000, 0 0 0 2px var(--fg-green), 0 0 40px -4px var(--split-a); }
+.gl-cover:is(:hover, :focus-visible) img { filter: url(#gl-mosh) contrast(1.15) saturate(1.4); }
+.gl-cover:is(:hover, :focus-visible)::before { opacity: 0.9; animation: gl-mosh-a 1s steps(1, end) infinite; }
+.gl-cover:is(:hover, :focus-visible)::after  { opacity: 0.9; animation: gl-mosh-b 1s steps(1, end) infinite; }
+@keyframes gl-mosh-a {
+  0%   { transform: translate(-6px, 0); clip-path: inset(8% 0 62% 0); }
+  34%  { transform: translate(9px, 0);  clip-path: inset(46% 0 30% 0); }
+  67%  { transform: translate(-3px, 2px); clip-path: inset(70% 0 6% 0); }
+}
+@keyframes gl-mosh-b {
+  0%   { transform: translate(7px, 0);  clip-path: inset(30% 0 40% 0); }
+  34%  { transform: translate(-8px, 0); clip-path: inset(2% 0 80% 0); }
+  67%  { transform: translate(4px, -2px); clip-path: inset(55% 0 20% 0); }
+}
+/* :has() — on the catalog, the covers you are not pointing at desaturate */
+.al-covers:has(.gl-cover:hover) .gl-cover:not(:hover) img { filter: grayscale(1) brightness(0.45); }
+
+/* ---------- 8. page parts --------------------------------------------- */
+.gl .al-sub { text-align: center; font-style: italic; color: var(--gl-muted); margin-top: 0; }
+.gl .al-small { font-size: 0.85em; color: var(--gl-muted); }
+.gl .al-links, .gl .al-social { text-align: center; font-size: 0.9em; line-height: 2; max-width: none; color: var(--gl-rule); }
+.gl .al-links a, .gl .al-social a { white-space: nowrap; }
+.gl .al-readers { text-align: center; font-size: 0.85em; color: var(--gl-muted); margin: 1.5em auto; }
+.gl .al-pad { margin-block: 1.5rem; }
+.gl h3.al-h { font-family: var(--mono); text-transform: lowercase; letter-spacing: 0.02em; }
+.gl h3.al-h::before { content: "$ " / ""; color: var(--fg-green); }
+
+/* home book list = a terminal "ls" */
+.gl .al-list { margin: 1em auto; padding-left: 1.4em; }
+[data-page="index"] .al-list {
+  position: relative; list-style: none; padding: 2.6rem 1.2rem 1rem; max-width: 64rem;
+  background: rgb(3 2 6 / 0.85); border: 1px solid var(--gl-rule); border-radius: 12px;
+  box-shadow: inset 0 0 30px rgb(0 255 0 / 0.05);
+}
+[data-page="index"] .al-list::before {
+  content: "\25CF  \25CF  \25CF    ~/books $ ls -l" / "";
+  position: absolute; left: 0; right: 0; top: 0; padding: 0.4rem 1rem;
+  font: 0.8rem var(--mono); color: var(--gl-muted);
+  border-bottom: 1px solid var(--gl-rule); background: linear-gradient(90deg, rgb(255 0 255 / 0.12), transparent);
+}
+[data-page="index"] .al-list li { margin: 0.7em 0; padding-left: 0.2em; }
+[data-page="index"] .al-list li::before { content: "-r--r--r--  " / ""; font: 0.8rem var(--mono); color: var(--fg-green); }
+[data-page="index"] .al-list li a { font-weight: 700; }
+.gl iframe.media-vid {
+  width: min(100%, 720px); aspect-ratio: 16 / 9; height: auto; border: 0; border-radius: 18px;
+  box-shadow: 0 0 0 2px #000, 0 0 0 3px var(--accent-deep), 0 0 50px -10px var(--split-a);
+}
+
+/* book layout: container queries on the panel */
+.gl .two-column-section { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; margin: 1rem 0 0; }
+.gl .image-column { justify-self: center; }
+.gl .text-column { min-width: 0; }
+@container main (min-width: 40rem) {
+  .gl .two-column-section { grid-template-columns: 220px minmax(0, 1fr); }
+  .gl .image-column { justify-self: start; }
+}
+.gl .al-gist { border-left: 3px solid var(--accent); padding: 0.4em 0 0.4em 0.9em; background: linear-gradient(90deg, color-mix(in srgb, var(--accent-deep) 30%, transparent), transparent); }
+.gl .al-gist strong { color: var(--accent); }
+
+/* quick facts = terminal window */
+.gl .al-facts {
+  margin: 2rem 0; padding: 0 1.2rem 1rem; border: 1px solid var(--gl-rule); border-radius: 12px;
+  background: rgb(3 2 6 / 0.85); container-type: inline-size;
+}
+.gl .al-facts h3 {
+  margin: 0 -1.2rem 1rem; padding: 0.5rem 1.2rem; font: 0.85rem var(--mono); color: var(--gl-muted);
+  border-bottom: 1px solid var(--gl-rule); background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 18%, transparent), transparent);
+}
+.gl .al-facts h3::before { content: "\25CF \25CF \25CF  cat ./" / ""; color: var(--accent); }
+.gl .al-facts dl { display: grid; grid-template-columns: 1fr; gap: 0.2em 1.2em; margin: 0; }
+.gl .al-facts dt { font: 700 0.85rem var(--mono); color: var(--fg-green); margin-top: 0.6em; }
+.gl .al-facts dt::before { content: "> " / ""; color: var(--accent); }
+.gl .al-facts dd { margin: 0; }
+@container (min-width: 34rem) {
+  .gl .al-facts dl { grid-template-columns: max-content minmax(0, 1fr); }
+  .gl .al-facts dt { margin-top: 0.1em; }
+}
+
+/* details: FAQ + spoiler */
+.gl details {
+  margin: 0.7rem 0; padding: 0.7rem 1rem; border-radius: 10px;
+  background: rgb(0 0 0 / 0.55); border: 1px solid var(--gl-rule);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.gl summary { cursor: pointer; font-weight: 700; color: var(--accent); }
+.gl details[open] { border-color: var(--accent); box-shadow: 0 0 24px -10px var(--accent); }
+.gl .al-faq { margin: 2rem 0; }
+.gl .al-faq h3::before { content: "? " / ""; color: var(--fg-green); font-family: var(--mono); }
+
+.gl .al-spoiler {
+  margin: 2rem 0; padding: 0; overflow: hidden; border: 2px solid var(--accent-deep);
+  background: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--accent-deep) 55%, #000) 0 12px, #000 12px 24px);
+}
+.gl .al-spoiler > summary { padding: 0.9rem 1.1rem; background: rgb(0 0 0 / 0.82); color: var(--gl-text); font-family: var(--mono); }
+.gl .al-spoiler > summary::before { content: "[REDACTED] " / ""; color: var(--fg-red); background: #000; }
+.gl .al-spoiler[open] > summary::before { content: "[DECLASSIFIED] " / ""; color: var(--fg-green); }
+.gl .al-spoiler > p { margin: 0; padding: 0.6rem 1.1rem; background: rgb(0 0 0 / 0.88); }
+.gl .al-spoiler > p:last-child { padding-bottom: 1.1rem; }
+
+/* catalog table */
+.gl .al-table { width: 100%; margin: 2rem 0; border-collapse: collapse; font-size: 0.88em; display: block; overflow-x: auto; }
+.gl .al-table caption { text-align: left; font: 0.8rem var(--mono); color: var(--gl-muted); padding-bottom: 0.5rem; }
+.gl .al-table caption::before { content: "$ cat catalog.tsv  # " / ""; color: var(--fg-green); }
+.gl .al-table th { font: 700 0.8rem var(--mono); color: var(--fg-green); text-align: left; text-transform: uppercase; }
+.gl .al-table th, .gl .al-table td { border-bottom: 1px solid var(--gl-rule); padding: 0.45em 0.7em; vertical-align: top; }
+.gl .al-table td:last-child { font-family: var(--mono); white-space: nowrap; }
+.gl .al-table tbody tr { transition: opacity 0.2s, background 0.2s; }
+.gl .al-table:has(tbody tr:hover) tbody tr:not(:hover) { opacity: 0.55; }
+.gl .al-table tbody tr:hover { background: color-mix(in srgb, var(--accent-deep) 30%, transparent); }
+/* 2026-11-03: Books page covers sit in a tidy 3x2 grid, each exactly 200x300; 2 columns on narrow phones */
+.gl .al-covers { display: grid; grid-template-columns: repeat(3, 200px); gap: 18px; justify-content: center; margin: 1.5rem 0; }
+.gl .al-covers .gl-cover { width: 200px; aspect-ratio: 2 / 3; }
+@container main (max-width: 660px) {
+  .gl .al-covers { grid-template-columns: repeat(2, minmax(0, 200px)); gap: 14px; }
+  .gl .al-covers .gl-cover { width: 100%; }
+}
+.gl .al-covers .gl-cover img { width: 100%; height: 100%; object-fit: fill; }  /* uniform 200x300 covers; stretching is intended */
+
+/* video: CRT bezel */
+.gl .al-video { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+@container main (min-width: 52rem) { .gl .al-video { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); } }
+.gl .al-video-player { position: relative; padding: 14px; border-radius: 26px; background: #050308; box-shadow: inset 0 0 0 2px var(--gl-rule), 0 0 50px -14px var(--split-a); }
+.gl .al-video-player video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 16px; }
+.gl #video-status { font-family: var(--mono); color: var(--fg-green); }
+.gl #video-status::before { content: "[signal lost] " / ""; color: var(--fg-red); }
+
+/* mailing-list form */
+.gl #mc_embed_signup { margin: 2rem auto 0; max-width: 34rem; padding: 1rem 1.2rem; border-radius: 14px; border: 1px solid var(--gl-rule); background: rgb(0 0 0 / 0.6); text-align: center; transition: box-shadow 0.25s, border-color 0.25s; }
+.gl #mc_embed_signup label { display: block; font: 700 0.9rem var(--mono); color: var(--fg-green); margin-bottom: 0.5rem; }
+.gl #mc_embed_signup .email { width: min(100%, 18rem); padding: 0.55em 0.8em; font: 1rem var(--mono); color: var(--gl-text); background: #000; border: 1px solid var(--accent); border-radius: 8px; }
+.gl #mc_embed_signup .button { padding: 0.55em 1.1em; font: 700 1rem var(--sans); color: #000; background: var(--fg-green); border: 0; border-radius: 8px; cursor: pointer; }
+.gl #mc_embed_signup .button:hover { background: var(--fg-pink); }
+/* :has() — the form lights up while you type, and goes red on a bad address */
+.gl #mc_embed_signup:has(.email:focus) { border-color: var(--fg-green); box-shadow: 0 0 30px -8px var(--fg-green); }
+.gl #mc_embed_signup:has(.email:user-invalid) { border-color: var(--fg-red); box-shadow: 0 0 30px -8px var(--fg-red); }
+
+/* footer */
+.gl .al-footer { width: min(72rem, 100% - 1.5rem); margin: 2.5rem auto 0; padding: 1rem 0 3rem; text-align: center; font-size: 0.82rem; color: var(--gl-muted); }
+.gl .al-footer p { margin: 0.5em auto; max-width: none; }
+
+/* ---------- 9. scroll-driven reveals (progressive) -------------------- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .gl .al-facts, .gl .al-faq, .gl .al-spoiler, .gl .al-table, .gl .two-column-section,
+    .gl .al-list li, .gl #mc_embed_signup, .gl .al-covers .gl-cover, .gl iframe.media-vid {
+      animation: gl-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 85%;   /* always completes: anything can be scrolled fully into view */
+    }
+  }
+}
+@keyframes gl-reveal {
+  from { opacity: 0.1; transform: translateY(28px) skewX(-5deg); filter: hue-rotate(80deg) saturate(2); clip-path: inset(0 0 40% 0); }
+  to   { opacity: 1; transform: none; filter: none; clip-path: inset(0); }
+}
+
+/* ---------- 10. view transitions between pages ----------------------- */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: 0.32s ease-in both gl-vt-out; }
+::view-transition-new(root) { animation: 0.42s ease-out both gl-vt-in; }
+::view-transition-group(gl-brand), ::view-transition-group(gl-main) { animation-duration: 0.4s; }
+@keyframes gl-vt-out { to { opacity: 0; transform: skewX(6deg) translateX(-2%); filter: blur(3px) hue-rotate(60deg); } }
+@keyframes gl-vt-in  { from { clip-path: inset(0 0 100% 0); filter: hue-rotate(-60deg) saturate(2); } to { clip-path: inset(0); } }
+
+/* ---------- 11. calm level + reduced motion --------------------------- */
+:root:has(#gl-i-0:checked) *, :root:has(#gl-i-0:checked) *::before, :root:has(#gl-i-0:checked) *::after,
+:root[data-gl-i="0"] *, :root[data-gl-i="0"] *::before, :root[data-gl-i="0"] *::after { animation: none !important; }
+:root:has(#gl-i-0:checked) .gl-scan::after, :root[data-gl-i="0"] .gl-scan::after { content: none; }
+
+/* reduced motion: CALM BY DEFAULT ("auto" or "calm"). Only an explicit pick of glitchy/unhinged on the switch
+   (radio via :has(), or the remembered choice mirrored to data-gl-i by glitch.js) opts back in.
+   In browsers without :has(), the forgiving :is() drops those branches, so calm still applies. */
+.gl-motion-note { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) *, :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) *::before, :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) .gl-scan::after, :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) .gl-scan::before, :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) .gl-blip { content: none; display: none; }
+  :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) .gl-glitch::before { clip-path: inset(50% 0 50% 0); }
+  :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) .gl-cover:is(:hover, :focus-visible) img { filter: contrast(1.1) saturate(1.3); }   /* no displacement */
+  :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) .gl-cover:is(:hover, :focus-visible)::before { opacity: 0.9; transform: translate(-3px, 0); }
+  :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) .gl-cover:is(:hover, :focus-visible)::after  { opacity: 0.9; transform: translate(3px, 0); }
+  :root:not(:is(:has(#gl-i-1:checked), :has(#gl-i-2:checked), [data-gl-i="1"], [data-gl-i="2"])) .gl-cover:is(:hover, :focus-visible) { transform: none; }
+  @view-transition { navigation: none; }
+  /* say so, next to the switch: the label checks "glitchy" (works with JS off) */
+  :root:has(#gl-i-a:checked) .gl-motion-note, :root[data-gl-i="a"] .gl-motion-note { display: block; }
+  .gl-intensity label[for="gl-i-a"]::after { content: " (calm)" / ""; color: var(--gl-muted); }
+}
+.gl .gl-motion-note {
+  flex: 1 0 100%; order: 9; max-width: none; margin: -0.2rem 0 0; text-align: right;
+  font: 0.85rem var(--mono); color: var(--gl-muted);
+}
+.gl-motion-note label { cursor: pointer; }
+.gl-motion-note span { color: var(--fg-green); text-decoration: underline dotted; text-underline-offset: 0.25em; }
+.gl-motion-note label:hover span { color: var(--fg-white); }
+.gl-intensity input:focus-visible + label { outline: 2px solid var(--fg-green); outline-offset: 2px; }
+
+/* high contrast / forced colors: drop the effect layers entirely */
+@media (forced-colors: active), (prefers-contrast: more) {
+  .gl-fx, .gl-blip, .gl-bg::after, .gl-doily, .gl-glitch::before, .gl-glitch::after, .gl-cover::before, .gl-cover::after { content: none; background: none; }
+  .gl-main { background: #000; backdrop-filter: none; animation: none; }
+}
+
+/* small screens */
+@media (max-width: 600px) {
+  .gl-header { position: static; }
+  .gl-main { margin-top: 1.4rem; border-radius: 18px; }
+  .gl-main::before, .gl-main::after { left: 18px; right: 18px; }
+  .gl-intensity { font-size: 0.75rem; }
+  .gl-motion-note { text-align: left; font-size: 0.78rem; }
+}
